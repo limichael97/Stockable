@@ -1,4 +1,4 @@
-# Stockable
+# 1-project-stock
 
 Application providing useful information about stocks
 
