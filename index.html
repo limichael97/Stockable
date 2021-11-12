@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css?family=IBM+Plex+Sans:400,400i,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
+    <link rel="stylesheet" href="./assets/css/style.css" />
+    <title>Stockable </title>
+</head>
+<body>
+
+    <main>
+        <!-- Header -->
+        <header class = "is-justify-content-center	is-align-content-center	mt-3 ">
+          <div class = "image is-128x128 img-position">
+            <img src="./assets/images/Stockable.png" alt = "logo">
+          </div>
+          <h1 class ="title is-1 headerText">Stockable</h1>
+        </header>
+
+        <!--Hero-->
+        <section class="hero is-primary">
+          <div class="hero-body">
+            <p class="title">
+              Primary hero
+            </p>
+            <p class="subtitle">
+              Primary subtitle
+            </p>
+          </div>
+        </section>
+
+        <section class = "mainContainer">
+            <!-- Search Bar and buttons to toggle-->
+            <section class = "columns">
+                <div class ="search-bar-container column is-half mt-3 mr-3 " id ="">
+                    <form id = "searchInput" class = "">
+                        <label class = "labelSearch" for = "company"> Enter company  </label>
+                        <input name ="company" id= "company" type = "text" autofocus = "true" class ="inputSearch " />
+                        <button type= "submit" class = "button is-info ml-3" > Search  </button>
+                    </form>
+                </div>
+
+                <div class = "toggle-container column is-half has-text-centered m-3" id = "">
+
+                    <button class ="button is-info " id = "stockIdBtn">Stocks</button>
+
+                    <button class = "button is-info linkRemove" id = "cryptoIdBtn">
+                        <a href = "./crypto.html" > Crypto </a>
+                    </button>
+
+                </div>
+            </section>
+
+            <!-- Stock Data Container-->
+            <section>
+                <div class ="stock-header-container" id ="">
+                    <h3 class ="" id = "companyName">  TSLA </h3>
+
+                    <span id = ""> NASDAQ</span>
+
+                    <div>
+                        <span id = "">1023</span>
+
+                        <span id ="">-139.44</span>
+        
+                        <span id = "">1023</span>
+        
+                        <span id = "">-0.50</span>
+
+                    </div>
+
+                    <div>
+                        <span id = "">At close</span>
+
+                        <span id = "">After hours</span>
+                    </div>
+
+                </div>
+            </section>
+
+
+            <!-- tabs-->
+            <section>
+                <div class ="mt-4 column is-four-fifths" id ="">
+                    <a class = "p-2 mr-5" href = "" > Summary </a>
+                    <a class = "p-2 mr-5" href = "" > Bio </a>
+                    <a class = "p-2 mr-5" href = "" > Chart </a>
+                </div>
+
+            </section>
+
+
+            <!--Tab Data-->
+            <section>
+                <div class ="tab-data" id ="">
+                
+                </div>
+            </section>
+                
+        </section>
+
+
+        <!-- Footer -->
+        <section>
+            <footer class ="footer ml-4">
+                <span> Created by Kimberly Amaya, Lauren De Guzman, Michael Li, Nelson Roberts</span>
+            </footer>
+        </section>
+
+    </main>
+
+
+
+    <script src="./assets/js/script.js"></script>
+</body>
+</html>
