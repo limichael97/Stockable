@@ -1,3 +1,5 @@
+bio.css
+
 header {
     display: flex;
 }
@@ -35,3 +37,13 @@ header {
     text-decoration: none;
     
 }
+
+.bio-tab {
+    background-color: hsl(204, 86%, 53%);
+    color: white;
+}
+
+.bio-company-name {
+    font-weight: bold;
+}
+
