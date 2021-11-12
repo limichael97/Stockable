@@ -1,5 +1,5 @@
 # 1-project-stock
-
+Test
 Application providing useful information about stocks
 
 ## USER STORY:
