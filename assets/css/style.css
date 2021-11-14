@@ -71,7 +71,12 @@ header {
     border-bottom: 2px solid hsl(204, 86%, 53%);
 }
 
-.bio-quarterly-header {
+.bio-quarterly-header, .bio-employee-header {
     font-weight: bold;
     padding-bottom: 20px;
+}
+
+.bio-quarterly-container {
+    padding-bottom: 30px;
+    border-bottom: 2px solid hsl(204, 86%, 53%);
 }

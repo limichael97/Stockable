@@ -18,6 +18,8 @@ var bioQuarterlyTitleData0 = document.getElementById("bio-quarterly-title-data-0
 var bioQuarterlyTypeData0 = document.getElementById("bio-quarterly-type-data-0")
 var bioQuarterlyWebsiteData0 = document.getElementById("bio-quarterly-website-data-0")
 var bioQuarterlyWebsiteDataLink0 = document.getElementById("bio-quarterly-website-data-link-0")
+var bioEmployeeTableBody = document.getElementById("bio-employee-table-body")
+var bioEmployeeRowBody = document.getElementById("bio-employee-row-body")
 
 
 
@@ -82,8 +84,10 @@ var appendProfileInfo = function(profileData) {
 
     // call the function
     getQuarterlyReports(profileData)
+    getCompanyOfficers(profileData)
 
     // top employee section
+
     
 }
 
@@ -100,4 +104,36 @@ var getQuarterlyReports = function(profileData) {
     }
 }
 
-getProfileInfo(companyInput);
+/*var getCompanyOfficers = function(profileData) {
+    for (i=0; i < profileData.assetProfile.companyOfficers.length; i++) {
+        var bioEmployeeNameData0 = document.createElement("td")
+        var bioEmployeeAgeData0 = document.createElement("td")
+        var bioEmployeeTitleData0 = document.createElement("td")
+        bioEmployeeNameData0.textContent = profileData.assetProfile.companyOfficers[i].name
+        bioEmployeeAgeData0.textContent = profileData.assetProfile.companyOfficers[i].age
+        bioEmployeeTitleData0.textContent = profileData.assetProfile.companyOfficers[i].title
+        bioEmployeeDataContainer0.appendChild(bioEmployeeNameData0)
+        bioEmployeeDataContainer0.appendChild(bioEmployeeAgeData0)
+        bioEmployeeDataContainer0.appendChild(bioEmployeeTitleData0)
+    }
+}*/
+
+var getCompanyOfficers = function(profileData) {
+    var bioEmployeeNameData0 = document.createElement("td")
+    bioEmployeeNameData0.textContent = profileData.assetProfile.companyOfficers[0].name
+    bioEmployeeRowBody.appendChild(bioEmployeeNameData0)
+
+    var bioEmployeeAgeData0 = document.createElement("td")
+    bioEmployeeAgeData0.textContent = profileData.assetProfile.companyOfficers[0].age
+    bioEmployeeRowBody.appendChild(bioEmployeeAgeData0)
+
+    var bioEmployeeTitleData0 = document.createElement("td")
+    bioEmployeeTitleData0.textContent = profileData.assetProfile.companyOfficers[0].title
+    bioEmployeeRowBody.appendChild(bioEmployeeTitleData0)
+
+    var bioEmployeePayData0 = document.createElement("td")
+    bioEmployeePayData0.textContent = "$" + profileData.assetProfile.companyOfficers[0].totalPay.longFmt
+    bioEmployeeRowBody.appendChild(bioEmployeePayData0)
+}
+
+getProfileInfo(companyInput)
