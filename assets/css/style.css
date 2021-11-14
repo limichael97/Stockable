@@ -48,7 +48,7 @@ header {
     padding-bottom: 10px;
 }
 
-.first-section {
+.address-section {
     padding-bottom: 20px;
     border-bottom: 2px solid hsl(204, 86%, 53%);
 }
@@ -58,10 +58,20 @@ header {
     padding-bottom: 10px;
 }
 
-.bio-industry {
-    padding-top: 125px;
+.bio-sector {
+    padding-top: 110px;
 }
 
 .bio-industry-container {
     text-align: right;
+}
+
+.bio-description-container {
+    padding-bottom: 30px;
+    border-bottom: 2px solid hsl(204, 86%, 53%);
+}
+
+.bio-quarterly-header {
+    font-weight: bold;
+    padding-bottom: 20px;
 }

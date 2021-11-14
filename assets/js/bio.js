@@ -9,10 +9,18 @@ var bioCompanyAd3 = document.getElementById("bio-company-cistzi")
 var bioCompanyAd4 = document.getElementById("bio-company-country")
 var bioCompanyAd5 = document.getElementById("bio-company-phone")
 var bioCompanyAd6 = document.getElementById("bio-company-website")
-var href = bioCompanyAd6.getAttribute("href")   
 var bioDescription = document.getElementById("bio-description")
 var bioIndustry = document.getElementById("bio-industry")
 var bioEmployees = document.getElementById("bio-employees")
+var bioSector = document.getElementById("bio-sector")
+var bioQuarterlyDateData0 = document.getElementById("bio-quarterly-date-data-0")
+var bioQuarterlyTitleData0 = document.getElementById("bio-quarterly-title-data-0")
+var bioQuarterlyTypeData0 = document.getElementById("bio-quarterly-type-data-0")
+var bioQuarterlyWebsiteData0 = document.getElementById("bio-quarterly-website-data-0")
+var bioQuarterlyWebsiteDataLink0 = document.getElementById("bio-quarterly-website-data-link-0")
+
+
+
 
 
 // get API function
@@ -45,6 +53,7 @@ var getProfileInfo = function(companyInput) {
 
 // append data & add text content
 var appendProfileInfo = function(profileData) {
+    // name and address section
     bioCompanyName.textContent = profileData.price.shortName + " (" + profileData.price.symbol + ")"
     bioCompanyAd1.textContent = profileData.assetProfile.address1
     bioCompanyAd2.textContent = profileData.assetProfile.address2
@@ -55,13 +64,40 @@ var appendProfileInfo = function(profileData) {
     bioCompanyAd6.setAttribute("href", profileData.assetProfile.website)
     bioCompanyAd6.setAttribute("target", "_blank")
 
-    tabDataContainer.classList.add("tabDataContainer")  
-
+    // industry section
+    bioSector.textContent = "Sector: " + profileData.assetProfile.sector
     bioIndustry.textContent = "Industry: " + profileData.assetProfile.industry
     bioEmployees.textContent = "Total Full-Time Employees: " + profileData.assetProfile.fullTimeEmployees
 
+    // description section
     bioDescription.textContent = profileData.assetProfile.longBusinessSummary
+
+    // quarterly reports section
+    /*bioQuarterlyDateData0.textContent = profileData.secFilings.filings[0].date
+    bioQuarterlyTitleData0.textContent = profileData.secFilings.filings[0].title
+    bioQuarterlyTypeData0.textContent = profileData.secFilings.filings[0].type
+    bioQuarterlyWebsiteDataLink0.textContent = profileData.secFilings.filings[0].edgarUrl
+    bioQuarterlyWebsiteDataLink0.setAttribute("href", profileData.secFilings.filings[0].edgarUrl)
+    bioQuarterlyWebsiteDataLink0.setAttribute("target", "_blank")*/
+
+    // call the function
+    getQuarterlyReports(profileData)
+
+    // top employee section
     
+}
+
+var getQuarterlyReports = function(profileData) {
+    for (i=0; i < profileData.secFilings.filings.length; i++) {
+        if (profileData.secFilings.filings[i].title === "Quarterly Report") {
+            bioQuarterlyDateData0.textContent = profileData.secFilings.filings[i].date
+            bioQuarterlyTitleData0.textContent = profileData.secFilings.filings[i].title
+            bioQuarterlyTypeData0.textContent = profileData.secFilings.filings[i].type
+            bioQuarterlyWebsiteDataLink0.textContent = profileData.secFilings.filings[i].edgarUrl
+            bioQuarterlyWebsiteDataLink0.setAttribute("href", profileData.secFilings.filings[i].edgarUrl)
+            bioQuarterlyWebsiteDataLink0.setAttribute("target", "_blank")
+        } else break;
+    }
 }
 
 getProfileInfo(companyInput);
