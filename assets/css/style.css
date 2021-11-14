@@ -45,5 +45,23 @@ header {
 
 .bio-company-name {
     font-weight: bold;
+    padding-bottom: 10px;
 }
 
+.first-section {
+    padding-bottom: 20px;
+    border-bottom: 2px solid hsl(204, 86%, 53%);
+}
+
+.bio-description-header {
+    font-weight: bold;
+    padding-bottom: 10px;
+}
+
+.bio-industry {
+    padding-top: 125px;
+}
+
+.bio-industry-container {
+    text-align: right;
+}
