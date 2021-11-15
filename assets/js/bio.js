@@ -1,6 +1,7 @@
 // global variables
-//var companyInput = document.getElementsByName("company").value
-var companyInput = "AMRN"
+var companyInput = document.getElementById("company")
+//var companyInput = "AMRN"
+var searchButton = document.getElementById("search-button")
 var tabDataContainer = document.getElementById("tab-data")
 var bioCompanyName = document.getElementById("bio-company-name")
 var bioCompanyAd1 = document.getElementById("bio-company-address1")
@@ -9,17 +10,21 @@ var bioCompanyAd3 = document.getElementById("bio-company-cistzi")
 var bioCompanyAd4 = document.getElementById("bio-company-country")
 var bioCompanyAd5 = document.getElementById("bio-company-phone")
 var bioCompanyAd6 = document.getElementById("bio-company-website")
+var addressSectionBorder = document.getElementById("address-section")
+var bioDescriptionHeader = document.getElementById("bio-description-header")
 var bioDescription = document.getElementById("bio-description")
+var bioDescriptionContainer = document.getElementById("bio-description-container")
 var bioIndustry = document.getElementById("bio-industry")
 var bioEmployees = document.getElementById("bio-employees")
 var bioSector = document.getElementById("bio-sector")
+var bioQuarterlyHeader = document.getElementById("bio-quarterly-header")
 var bioQuarterlyDateData0 = document.getElementById("bio-quarterly-date-data-0")
 var bioQuarterlyTitleData0 = document.getElementById("bio-quarterly-title-data-0")
 var bioQuarterlyTypeData0 = document.getElementById("bio-quarterly-type-data-0")
-var bioQuarterlyWebsiteData0 = document.getElementById("bio-quarterly-website-data-0")
 var bioQuarterlyWebsiteDataLink0 = document.getElementById("bio-quarterly-website-data-link-0")
-var bioEmployeeTableBody = document.getElementById("bio-employee-table-body")
-var bioEmployeeRowBody = document.getElementById("bio-employee-row-body")
+var bioQuarterlyContainer = document.getElementById("bio-quarterly-container")
+var bioEmployeeHeader = document.getElementById("bio-employee-header")
+var bioEmployeeTable = document.getElementById("employee-table")
 
 
 
@@ -29,15 +34,17 @@ var bioEmployeeRowBody = document.getElementById("bio-employee-row-body")
 // pass parameter of what was entered into input field
 var getProfileInfo = function(companyInput) {
 
-    console.log(companyInput);
+    console.log(companyInput.value)
 
-    var profileData = "https://yh-finance.p.rapidapi.com/stock/v2/get-profile?symbol=AMRN&region=US";
+    var profileData = "https://yh-finance.p.rapidapi.com/stock/v2/get-profile?symbol=" + companyInput.value + "&region=US";
+    //var profileData = "https://yh-finance.p.rapidapi.com/stock/v2/get-profile?symbol=AMD&region=US";
+
 
     fetch(profileData, {
         "method": "GET",
         "headers": {
             "x-rapidapi-host": "yh-finance.p.rapidapi.com",
-            "x-rapidapi-key": "da885deccbmshf43da30fdf00ccfp12ed41jsna44199cba64d"
+            "x-rapidapi-key": "2ce7468985msh2300cf13fac2d74p1ebd78jsn379acef727cd"
         }
     })
     .then(function(response) {
@@ -48,6 +55,7 @@ var getProfileInfo = function(companyInput) {
         })
         
     })
+    // error handling
     .catch(err => { 
         console.error(err);
     });
@@ -58,8 +66,14 @@ var appendProfileInfo = function(profileData) {
     // name and address section
     bioCompanyName.textContent = profileData.price.shortName + " (" + profileData.price.symbol + ")"
     bioCompanyAd1.textContent = profileData.assetProfile.address1
-    bioCompanyAd2.textContent = profileData.assetProfile.address2
-    bioCompanyAd3.textContent = profileData.assetProfile.city //NEED TO ADD STATE & ZIP//
+    // my attempt to insert a blank line so that industry will stay aligned
+    // didn't work
+    if ('addrress2' in profileData.assetProfile) {
+        bioCompanyAd2.textContent = profileData.assetProfile.address2
+    } else {
+        bioCompanyAd2 = ""
+    }
+    bioCompanyAd3.textContent = profileData.assetProfile.city + " " + profileData.assetProfile.state + ", " + profileData.assetProfile.zip
     bioCompanyAd4.textContent = profileData.assetProfile.country
     bioCompanyAd5.textContent = profileData.assetProfile.phone
     bioCompanyAd6.textContent = profileData.assetProfile.website
@@ -71,8 +85,13 @@ var appendProfileInfo = function(profileData) {
     bioIndustry.textContent = "Industry: " + profileData.assetProfile.industry
     bioEmployees.textContent = "Total Full-Time Employees: " + profileData.assetProfile.fullTimeEmployees
 
+    addressSectionBorder.classList.add("address-section")
+
     // description section
+    bioDescriptionHeader.textContent = "Description"
     bioDescription.textContent = profileData.assetProfile.longBusinessSummary
+    bioDescriptionContainer.classList.add("bio-description-container")
+
 
     // quarterly reports section
     /*bioQuarterlyDateData0.textContent = profileData.secFilings.filings[0].date
@@ -92,6 +111,10 @@ var appendProfileInfo = function(profileData) {
 }
 
 var getQuarterlyReports = function(profileData) {
+    bioQuarterlyHeader.textContent = "Quarterly Reports" 
+    bioQuarterlyContainer.classList.add("bio-quarterly-container")   
+    // add logic, if you cannot find filings in secFilings, N/A 
+    // plug in NIO to check this    
     for (i=0; i < profileData.secFilings.filings.length; i++) {
         if (profileData.secFilings.filings[i].title === "Quarterly Report") {
             bioQuarterlyDateData0.textContent = profileData.secFilings.filings[i].date
@@ -104,21 +127,48 @@ var getQuarterlyReports = function(profileData) {
     }
 }
 
-/*var getCompanyOfficers = function(profileData) {
+var getCompanyOfficers = function(profileData) {
+
+    bioEmployeeHeader.textContent = "Company Officers"
+
     for (i=0; i < profileData.assetProfile.companyOfficers.length; i++) {
+        var bioEmployeeTr = document.createElement("tr")
         var bioEmployeeNameData0 = document.createElement("td")
         var bioEmployeeAgeData0 = document.createElement("td")
         var bioEmployeeTitleData0 = document.createElement("td")
+        var bioEmployeePayData0 = document.createElement("td")
         bioEmployeeNameData0.textContent = profileData.assetProfile.companyOfficers[i].name
-        bioEmployeeAgeData0.textContent = profileData.assetProfile.companyOfficers[i].age
+        if (typeof profileData.assetProfile.companyOfficers[i].age == "number") {
+            bioEmployeeAgeData0.textContent = profileData.assetProfile.companyOfficers[i].age
+        } else {
+            bioEmployeeAgeData0.textContent = "N/A"
+        }
         bioEmployeeTitleData0.textContent = profileData.assetProfile.companyOfficers[i].title
-        bioEmployeeDataContainer0.appendChild(bioEmployeeNameData0)
-        bioEmployeeDataContainer0.appendChild(bioEmployeeAgeData0)
-        bioEmployeeDataContainer0.appendChild(bioEmployeeTitleData0)
+        if ('totalPay' in profileData.assetProfile.companyOfficers[i]) {
+            bioEmployeePayData0.textContent = "$" + profileData.assetProfile.companyOfficers[i].totalPay.longFmt
+        } else {
+            bioEmployeePayData0.textContent = "N/A"
+        }
+        /*var exists = profileData.assetProfile.companyOfficers[i].totalPay.hasOwnProperty('longFmt')
+        console.log(exists)
+        if (exists = true) {
+            bioEmployeePayData0.textContent = profileData.assetProfile.companyOfficers[i].totalPay.longFmt
+        }else console.log("you lose")*/
+        // td is appended to tr
+        bioEmployeeTr.appendChild(bioEmployeeNameData0)
+        bioEmployeeTr.appendChild(bioEmployeeAgeData0)
+        bioEmployeeTr.appendChild(bioEmployeeTitleData0)
+        bioEmployeeTr.appendChild(bioEmployeePayData0)
+        // tr is appended to table
+        bioEmployeeTable.appendChild(bioEmployeeTr)
     }
-}*/
+}
 
-var getCompanyOfficers = function(profileData) {
+/*var getCompanyOfficers = function(profileData) {
+
+    //bioEmployeeRowBody = ""
+    bioEmployeeHeader.textContent = "Company Officers"
+
     var bioEmployeeNameData0 = document.createElement("td")
     bioEmployeeNameData0.textContent = profileData.assetProfile.companyOfficers[0].name
     bioEmployeeRowBody.appendChild(bioEmployeeNameData0)
@@ -134,6 +184,17 @@ var getCompanyOfficers = function(profileData) {
     var bioEmployeePayData0 = document.createElement("td")
     bioEmployeePayData0.textContent = "$" + profileData.assetProfile.companyOfficers[0].totalPay.longFmt
     bioEmployeeRowBody.appendChild(bioEmployeePayData0)
-}
+}*/
 
 getProfileInfo(companyInput)
+
+
+// add my own logic for when seach button is pressed
+
+/*var inputHandler = function(event) {
+    event.preventDefault();
+
+    getProfileInfo(companyInput)
+}
+
+searchButton.addEventListener("click",inputHandler)*/

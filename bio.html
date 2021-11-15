@@ -40,7 +40,7 @@
                     <form id = "searchInput" class = "">
                         <label class = "labelSearch" for = "company"> Enter company  </label>
                         <input name ="company" id= "company" type = "text" autofocus = "true" class ="inputSearch " />
-                        <button type= "submit" class = "button is-info ml-3" > Search  </button>
+                        <button type= "submit" id="search-button" class = "button is-info ml-3" > Search  </button>
                     </form>
                 </div>
 
@@ -95,7 +95,7 @@
 
 
             <!--Tab Data-->
-            <section class="columns address-section">
+            <section id="address-section" class="columns">
                 <!-- company name and address -->
                 <div class ="column is-half is-flex-direction-column pt-5 tab-data" id ="tab-data">
                     <h4 id="bio-company-name" class="pl-3 bio-company-name"></h4>
@@ -118,16 +118,16 @@
 
             <section class="columns description-section">
                 <!-- company description -->
-                <div id="bio-description-container" class="column is-full is-flex-direction-column pt-5 bio-description-container">
-                    <h5 id="bio-description-header" class="pl-3 bio-description-header">Description</h5>
+                <div id="bio-description-container" class="column is-full is-flex-direction-column pt-5">
+                    <h5 id="bio-description-header" class="pl-3 bio-description-header"></h5>
                     <p id="bio-description" class="pl-3 bio-description"></p>
                     </div>
             </section>
 
             <section class="columns quarterly-section">
                 <!-- Quarterly Reports -->
-                <div id="bio-quarterly-container" class="column is-full is-flex-direction-column pt-5 bio-quarterly-container">
-                    <h5 id="bio-quarterly-header" class="pl-3 bio-quarterly-header">Quaterly Reports</h5>
+                <div id="bio-quarterly-container" class="column is-full is-flex-direction-column pt-5">
+                    <h5 id="bio-quarterly-header" class="pl-3 bio-quarterly-header"></h5>
                     <table class="table table-is-striped">
                         <tr>
                             <th id="bio-quarterly-date-header">Date</th>
@@ -136,12 +136,12 @@
                             <th id="bio-quarterly-website-header">Website</th>
                         </tr>
 
-                        <tr>
-                            <td id="bio-quarterly-date-data-0">dynamic</td>
-                            <td id="bio-quarterly-title-data-0">dynamic</td>
-                            <td id="bio-quarterly-type-data-0">dynamic</td>
+                        <tr id="bio-quarterly-data-container">
+                            <td id="bio-quarterly-date-data-0"></td>
+                            <td id="bio-quarterly-title-data-0"></td>
+                            <td id="bio-quarterly-type-data-0"></td>
                             <td id="bio-quarterly-website-data-0">
-                                <a id="bio-quarterly-website-data-link-0">dynamic</a>
+                                <a id="bio-quarterly-website-data-link-0"></a>
                             </td>
 
                             <!-- append additional table data here -->
@@ -152,21 +152,14 @@
 
             <section class="columns employee-section">
                 <div class="column is-full is-flex-direction-column pt-5 bio-employee-container">
-                    <h5 id="bio-employee-header" class="pl-3 bio-employee-header">Company Officers</h5>
-                    <table class="table table-is-striped">
-                        <thead id="bio-employee-table-head">
-                            <tr>
-                                <th id="bio-employee-name-header">Name</th>
-                                <th id="bio-employee-age-header">Age</th>
-                                <th id="bio-employee-title-header">Title</th>
-                                <th id="bio-employee-pay-header">Total Pay</th>
-                            </tr>
-                        </thead>    
-                        <tbody id="bio-employee-table-body">
-                           <tr id="bio-employee-row-body">
-
-                           </tr>
-                        </tbody>
+                    <h5 id="bio-employee-header" class="pl-3 bio-employee-header"></h5>
+                    <table class="table table-is-striped" id="employee-table">
+                        <tr>
+                            <th id="bio-employee-name-header">Name</th>
+                            <th id="bio-employee-age-header">Age</th>
+                            <th id="bio-employee-title-header">Title</th>
+                            <th id="bio-employee-pay-header">Total Pay</th>
+                        </tr>  
                     </table>
                 </div>
 
