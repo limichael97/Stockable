@@ -1,6 +1,6 @@
 // global variables
-var companyInput = document.getElementById("company")
-//var companyInput = "AMRN"
+//var companyInput = document.getElementById("company")
+var companyInput = "AMRN"
 var searchButton = document.getElementById("search-button")
 var tabDataContainer = document.getElementById("tab-data")
 var bioCompanyName = document.getElementById("bio-company-name")
@@ -18,6 +18,10 @@ var bioIndustry = document.getElementById("bio-industry")
 var bioEmployees = document.getElementById("bio-employees")
 var bioSector = document.getElementById("bio-sector")
 var bioQuarterlyHeader = document.getElementById("bio-quarterly-header")
+var bioQuarterlyDateHeader = document.getElementById("bio-quarterly-date-header")
+var bioQuarterlyTitleHeader = document.getElementById("bio-quarterly-title-header")
+var bioQuarterlyTypeHeader = document.getElementById("bio-quarterly-type-header")
+var bioQuarterlyWebsiteHeader = document.getElementById("bio-quarterly-website-header")
 var bioQuarterlyDateData0 = document.getElementById("bio-quarterly-date-data-0")
 var bioQuarterlyTitleData0 = document.getElementById("bio-quarterly-title-data-0")
 var bioQuarterlyTypeData0 = document.getElementById("bio-quarterly-type-data-0")
@@ -25,6 +29,10 @@ var bioQuarterlyWebsiteDataLink0 = document.getElementById("bio-quarterly-websit
 var bioQuarterlyContainer = document.getElementById("bio-quarterly-container")
 var bioEmployeeHeader = document.getElementById("bio-employee-header")
 var bioEmployeeTable = document.getElementById("employee-table")
+var bioEmployeeNameHeader = document.getElementById("bio-employee-name-header")
+var bioEmployeeAgeHeader = document.getElementById("bio-employee-age-header")
+var bioEmployeeTitleHeader = document.getElementById("bio-employee-title-header")
+var bioEmployeePayHeader = document.getElementById("bio-employee-pay-header")
 
 
 
@@ -111,8 +119,12 @@ var appendProfileInfo = function(profileData) {
 }
 
 var getQuarterlyReports = function(profileData) {
-    bioQuarterlyHeader.textContent = "Quarterly Reports" 
-    bioQuarterlyContainer.classList.add("bio-quarterly-container")   
+    bioQuarterlyContainer.classList.add("bio-quarterly-container")  
+    bioQuarterlyHeader.textContent = "Quarterly Reports"
+    bioQuarterlyDateHeader.textContent = "Date"
+    bioQuarterlyTitleHeader.textContent = "Title"
+    bioQuarterlyTypeHeader.textContent = "Type"
+    bioQuarterlyWebsiteHeader.textContent = "Website"
     // add logic, if you cannot find filings in secFilings, N/A 
     // plug in NIO to check this    
     for (i=0; i < profileData.secFilings.filings.length; i++) {
@@ -130,6 +142,10 @@ var getQuarterlyReports = function(profileData) {
 var getCompanyOfficers = function(profileData) {
 
     bioEmployeeHeader.textContent = "Company Officers"
+    bioEmployeeNameHeader.textContent = "Name"
+    bioEmployeeAgeHeader.textContent = "Age"
+    bioEmployeeTitleHeader.textContent = "Title"
+    bioEmployeePayHeader.textContent = "Pay"
 
     for (i=0; i < profileData.assetProfile.companyOfficers.length; i++) {
         var bioEmployeeTr = document.createElement("tr")
