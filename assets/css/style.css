@@ -35,3 +35,57 @@ header {
     text-decoration: none;
     
 }
+
+.cryptoTab {
+    font-weight: bold;
+    width:80%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.noWrap {
+    display: inline-block;
+}
+
+.positiveChange {
+    color: green;
+}
+
+.negativeChange {
+    color: red;
+}
+
+.imageSize {
+    height: 15px;
+    width: 15px;
+}
+
+.elementFlex {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.divContainer {
+    flex-direction: column;
+    width:80%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+table {
+    width: 100%;
+}
+
+.pageStyle {
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.borderLine {
+    border-bottom: 1px solid rgb(221, 221, 221);
+}
+
+.cursorHover {
+    cursor: pointer;
+}
