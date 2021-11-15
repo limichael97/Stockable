@@ -87,8 +87,8 @@ var displayCoin = function(name, symbol, rank, price, change, cap, maxsupply, su
     var decimalVolume = (Math.round(volume))
     var commaVolume = numToComma(decimalVolume)
 
-    cryptoName.classList.add("my-3", "py-2")
-    cryptoRank.classList.add("my-3", "py-2")
+    cryptoName.classList.add("my-3", "py-2", "has-text-centered")
+    cryptoRank.classList.add("my-3", "py-2", "has-text-centered")
     cryptoPrice.classList.add("my-3", "py-2")
     cryptoChange.classList.add("my-3", "py-2")
     cryptoCap.classList.add("my-3", "py-2")
@@ -189,8 +189,6 @@ $("#sortSupply").click(function(){
     sortTable(toggleSupply,d);
 });
 
-
-
 sortPrice.addEventListener("click", priceSort)
 
 function priceSort() {
@@ -245,17 +243,17 @@ function comparePrice(a,b) {
     return 0
 }
 
-// sortChange.addEventListener("click", changeSort)
+// sortCap.addEventListener("click", changeCap)
 
-// function changeSort() {
-//     function compareSort(a,b) {
+// function changeCap() {
+//     function compareCap(a,b) {
 
-//         if (a.price_change_percentage_24h < b.price_change_percentage_24h) {
-//             if (a.price_change_percentage_24h < b.price_change_percentage_24h) {
+//         if (a.market_cap < b.market_cap) {
+//             if (a.market_cap < b.market_cap) {
 //                 return -1 
 //             }
     
-//             if (a.price_change_percentage_24h > b.price_change_percentage_24h) {
+//             if (a.market_cap > b.market_cap) {
 //                 return 1
 //             }
     
@@ -263,12 +261,12 @@ function comparePrice(a,b) {
 
 //         }
 
-//         else if (a.price_change_percentage_24h > b.price_change_percentage_24h) {
-//             if (a.price_change_percentage_24h < b.price_change_percentage_24h) {
+//         else if (a.market_cap > b.market_cap) {
+//             if (a.market_cap < b.market_cap) {
 //                 return 1 
 //             }
     
-//             if (a.price_change_percentage_24h > b.price_change_percentage_24h) {
+//             if (a.market_cap > b.market_cap) {
 //                 return -1
 //             }
     
@@ -276,7 +274,7 @@ function comparePrice(a,b) {
 //         }
 
 //     }
-//     array.sort(compareSort)
+//     array.sort(compareCap)
 //     console.log(array)
 
 //     tableData1.innerHTML = ""
@@ -288,12 +286,12 @@ function comparePrice(a,b) {
 // }
 
 
-// function compareSort(a,b) {
-//     if (a.price_change_percentage_24h < b.price_change_percentage_24h) {
+// function compareCap(a,b) {
+//     if (a.market_cap < b.market_cap) {
 //         return -1 
 //     }
 
-//     if (a.price_change_percentage_24h > b.price_change_percentage_24h) {
+//     if (a.market_cap > b.market_cap) {
 //         return 1
 //     }
 

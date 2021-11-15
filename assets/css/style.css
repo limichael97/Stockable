@@ -16,6 +16,16 @@ header {
     top:35px;
 }
 
+.cryptoHeader {
+    width: 95%;
+
+}
+
+.cryptoHeader h1 {
+    overflow:auto;
+    white-space: nowrap;
+}
+
 .mainContainer {
     width: 95%;
     margin-left: auto;
