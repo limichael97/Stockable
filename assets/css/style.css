@@ -80,3 +80,7 @@ header {
   color: white;
   text-decoration: none;
 }
+
+.stock-header-container h3 {
+  font-weight: bold;
+}

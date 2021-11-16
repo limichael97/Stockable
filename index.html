@@ -24,7 +24,7 @@
       <!-- Header -->
       <header>
         <div class="">
-          <img src="./assets/images/stockable header image.png" alt="logo" width="80%"/>
+          <img src="./assets/images/stockable header image.png" alt="logo" width="65%"/>
         </div>
       </header>
 
@@ -41,13 +41,14 @@
         <section class="columns">
           <div class="search-bar-container column is-half mt-3 mr-3" id="">
             <form id="searchInput" class="">
-              <label class="labelSearch" for="company"> Enter company </label>
+              <label class="labelSearch" for="company"><strong>Enter company:</strong> </label>
               <input
                 name="company"
                 id="company"
                 type="text"
                 autofocus="true"
                 class="inputSearch"
+                placeholder="e.g. TSLA"
               />
               <button type="submit" class="button is-info ml-3">Search</button>
             </form>
@@ -72,21 +73,27 @@
 
             <span id="subtitle"> </span>
 
-            <div class="colomn is-half">
-              <span id="current-price"></span>
+            <table class="colomn is-half table">
+             <tr>   
+              <th id="current-price"></th>
+              <td id="current-price-text"></td>
 
-              <span id="percent-change"></span>
+              <td id="percent-change"></td>
 
-              <span id="at-close"></span>
-            </div>
+              <td id="at-close"></td>
+              </tr>
+            </table>
 
-            <div class="colomn is-half">
-              <span id="post-market-price"></span>
+            <table class="colomn is-half table">
+            <tr>
+              <th id="post-market-price"></th>
+             <td id="post-market-price-text"></td> 
 
-              <span id="post-market-change"></span>
+              <td id="post-market-change"></td>
 
-              <span id="after-hours"></span>
-            </div>
+              <td id="after-hours"></td>
+            </tr>
+            </table>
           </div>
         </section>
 
@@ -101,50 +108,66 @@
 
         <!--Tab Data-->
         <section>
-          <div class="tab-data" id="">
+          <div class="tab-data table" id="">
             <div
-              class="column is-half is-flex-direction-column pt-5 tab-data"
+              class="column is-half is-flex-direction-column pt-5 tab-data table"
               id="summary-data"
             >
-              <span id="column1" class="data-column">
-                <ul id="column-left">
-                  <li id="previous-close" class="data-list"></li>
+              <table id="columnOne" class="data-column table is-bordered is-fullwidth is-striped ">
+                <tr id="column-left">
+                  <th id="previous-close" class="data-list"></th>
+                  <td id="previous-close-text" class="data-list-item"></td>
                   
-                  <li id="open" class="data-list"></li>
+                  <th id="open" class="data-list"></th>
+                  <td id="open-text" class="data-list-item"></td>
                   
-                  <li id="bid" class="data-list"></li>
+                  <th id="bid" class="data-list"></th>
+                  <td id="bid-text" class="data-list-item"></td>
                   
-                  <li id="ask" class="data-list"></li>
+                  <th id="ask" class="data-list"></th>
+                  <td id="ask-text" class="data-list-item"></td>
                   
-                  <li id="days-range" class="data-list"></li>
+                  <th id="days-range" class="data-list"></th>
+                  <td id="days-range-text" class="data-list-item"></td>
                   
-                  <li id="52-week-high" class="data-list"></li>
+                  <th id="52-week-high" class="data-list"></th>
+                  <td id="52-week-high-text" class="data-list-item"></td>
                   
-                  <li id="volume" class="data-list"></li>
+                  <th id="volume" class="data-list"></th>
+                  <td id="volume-text" class="data-list-item"></td>
                   
-                  <li id="average-volume" class="data-list"></li>
+                  <th id="average-volume" class="data-list"></th>
+                  <td id="average-volume-text" class="data-list-item"></td>
                   
-                </ul>
-              </span>
-              <span id="column2" class="data-column">
-                <ul id="column-right">
-                  <li id="market-cap" class="data-list"></li>
+                </tr>
+              </table>
+              <table id="column2" class="data-column is-bordered table is-fullwidth is-striped">
+                <tr id="column-right">
+                  <th id="market-cap" class="data-list"></th>
+                  <td id="market-cap-text" class="data-list-item"></td>
+
+                  <th id="beta" class="data-list"></th>
+                  <td id="beta-text" class="data-list-item"></td>
                   
-                  <li id="beta" class="data-list"></li>
+                  <th id="pe-ratio" class="data-list"></th>
+                  <td id="pe-ratio-text" class="data-list-item"></td>
+
+                  <th id="eps" class="data-list"></th>
+                  <td id="eps-text" class="data-list-item"></td>
                   
-                  <li id="pe-ratio" class="data-list"></li>
+                  <th id="earnings-date" class="data-list"></th>
+                  <td id="earnings-date-text" class="data-list-item"></td>
+
+                  <th id="forward-dividend" class="data-list"></th>
+                <td id="forward-dividend-text" class="data-list-item"></td>
+
+                  <th id="ex-dividend" class="data-list"></th>
+                  <td id="ex-dividend-text" class="data-list-item"></td>
                   
-                  <li id="eps" class="data-list"></li>
-                  
-                  <li id="earnings-date" class="data-list"></li>
-                  
-                  <li id="forward-dividend" class="data-list"></li>
-                  
-                  <li id="ex-dividend" class="data-list"></li>
-                  
-                  <li id="1y-target" class="data-list"></li>
-                </ul>
-              </span>
+                  <th id="1y-target" class="data-list"></th>
+                  <td id="1y-target-text" class="data-list-item"></td>
+                  </tr>
+              </table>
             </div>
           </div>
         </section>
