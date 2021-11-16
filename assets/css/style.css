@@ -1,3 +1,5 @@
+bio.css
+
 header {
     display: flex;
 }
@@ -98,4 +100,51 @@ table {
 
 .cursorHover {
     cursor: pointer;
+}
+
+.bio-tab {
+    background-color: hsl(204, 86%, 53%);
+    color: white;
+}
+
+.bio-company-name {
+    font-weight: bold;
+    padding-bottom: 10px;
+}
+
+.address-section {
+    padding-bottom: 20px;
+    border-bottom: 2px solid hsl(204, 86%, 53%);
+}
+
+.bio-description-header {
+    font-weight: bold;
+    padding-bottom: 10px;
+}
+
+.bio-sector {
+    padding-top: 110px;
+}
+
+.bio-sector-no-address2 {
+    padding-top: 82px;
+}
+
+.bio-industry-container {
+    text-align: right;
+}
+
+.bio-description-container {
+    padding-bottom: 30px;
+    border-bottom: 2px solid hsl(204, 86%, 53%);
+}
+
+.bio-quarterly-header, .bio-employee-header {
+    font-weight: bold;
+    padding-bottom: 20px;
+}
+
+.bio-quarterly-container {
+    padding-bottom: 30px;
+    border-bottom: 2px solid hsl(204, 86%, 53%);
 }
