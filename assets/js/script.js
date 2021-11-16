@@ -7,6 +7,9 @@ var currentPrice = document.getElementById("current-price");
 var percentChange = document.getElementById("percent-change");
 var postMarketPrice = document.getElementById("post-market-price");
 var postMarketChange = document.getElementById("post-market-change");
+var atClose = document.getElementById("at-close");
+var afterHours = document.getElementById("after-hours");
+var subtitle = document.getElementById("subtitle");
 
 var previousClose = document.getElementById("previous-close");
 var openPrice = document.getElementById("open");
@@ -22,109 +25,129 @@ var beta = document.getElementById("beta");
 var peRatio = document.getElementById("pe-ratio");
 var eps = document.getElementById("eps");
 var earningsDate = document.getElementById("earnings-date");
-var forwardDividends = document.getElementById("forward-dividends");
+var forwardDividend = document.getElementById("forward-dividend");
 var exDividend = document.getElementById("ex-dividend");
 var oneYearTarget = document.getElementById("1y-target");
 
-//API Call to Yahoo Financa
-var getStock = function () {
-  fetch(
-    "https://yh-finance.p.rapidapi.com/stock/v2/get-summary?symbol=AMD&region=US",
-    {
-      method: "GET",
-      headers: {
-        "x-rapidapi-host": "yh-finance.p.rapidapi.com",
-        "x-rapidapi-key": "da885deccbmshf43da30fdf00ccfp12ed41jsna44199cba64d",
-      },
-    }
-  )
-    .then(function (response) {
-      if (response.ok) {
-        response.json().then(function (data) {
-          console.log(data);
-        });
-      } else {
-        alert("Error");
-      }
-    })
-    .catch((err) => {
-      console.error(err);
-    });
-};
-
-// Call Get stock function
-getStock();
-
 //function to display data on stockheader
 var appendStockHeader = function (data) {
-  //Append <h3> with company name
-  companyName.textContent = data.price.circulatingSupply.longName;
+  queryUrl =
+    "https://yh-finance.p.rapidapi.com/stock/v2/get-summary?symbol=" +
+    stock +
+    "&region=US";
 
-  //Create <div> for at close column
+  $.ajax({
+    url: queryUrl,
+    method: "GET",
+    headers: {
+      "x-rapidapi-host": "yh-finance.p.rapidapi.com",
+      "x-rapidapi-key": "2ce7468985msh2300cf13fac2d74p1ebd78jsn379acef727cd",
+    },
+  }).then(function (response) {
+    console.log(response);
 
-  //Append <span> for Current Price
-  currentPrice.textContent = data.financialData.currentPrice.fmt;
+    //Append <h3> with company name
+    companyName.textContent = response.price.longName;
 
-  //Append <span> percent change - price at close
-  percentChange.textContent = data.price.regularMarketChange.fmt;
+    //Append <span> for subtitle
+    subtitle.textContent =
+      "NasdaqGS - NasdaqGS Real Time Price. Currency in USD";
 
-  //Append <span> at close text with date
+    //<div> for at close column
+    //Append <span> for Current Price
+    currentPrice.textContent =
+      "Current Price: " + response.financialData.currentPrice.fmt;
 
-  //Create <div> for at After Hours Colomn
+    //Append <span> percent change - Price at close
+    percentChange.textContent =
+      "(" + response.price.regularMarketChange.fmt + ")";
 
-  //Append <span> for Price at after hours
-  postMarketPrice.textContent = data.price.postMarketPrice.fmt;
+    //Append <span> at close text with date
+    atClose.textContent = "At close: 4:00PM EST";
 
-  //Append <span> percent change - after hours
-  postMarketChange.textContent = data.price.postMarketChange.fmt;
+    //<div> for at After Hours Colomn
+    //Append <span> for Price at after hours
+    postMarketPrice.textContent =
+      "Post Market Price: " + response.price.postMarketPrice.fmt;
 
-  //Append <span> after hours text with date
+    //Append <span> percent change - after hours
+    postMarketChange.textContent =
+      "(" + response.price.postMarketChange.fmt + ")";
 
-  //function to display data on tabData <div>
-  //Create <span> for colomn 1
-  //Create <ul> for col left
-  //Create <li> : Previous Close
-  previousClose.textContent = data.summaryDetail.previousClose.fmt;
+    //Append <span> after hours text with date
+    afterHours.textContent = "After hours";
 
-  //Create <li> : Open
-  openPrice.textContent = data.summaryDetail.open.fmt;
+    //function to display data on tabData <div>
+    //<span> for colomn 1
+    //<ul> for col left
+    //Create <li> : Previous Close
+    previousClose.textContent =
+      "Previous Close: " + response.summaryDetail.previousClose.fmt;
 
-  //Create <li> : Bid
-  bid.textContent = data.summaryDetail.bid.fmt;
+    //Create <li> : Open
+    openPrice.textContent = "Open: " + response.summaryDetail.open.fmt;
 
-  //Create <li> : Ask
-  ask.textContent = data.summaryDetail.ask.fmt;
+    //Create <li> : Bid
+    bid.textContent = "Bid: " + response.summaryDetail.bid.fmt;
 
-  //Create <li> : Day's Range
+    //Create <li> : Ask
+    ask.textContent = "Ask: " + response.summaryDetail.ask.fmt;
 
-  //Create <li> : 52-week high
-  fiftytwoWeekHigh.textContent = data.summaryDetail.fiftytwoWeekHigh.fmt;
+    //Create <li> : Day's Range
+    daysRange.textContent =
+      "Day's Range: " +
+      response.summaryDetail.dayHigh.fmt +
+      " - " +
+      response.summaryDetail.dayLow.fmt;
 
-  //Create <li> : Volume
-  volumePrice.textContent = data.summaryDetail.volume.fmt;
+    //Create <li> : 52-week high
+    fiftytwoWeekHigh.textContent =
+      "52-Week High: " + response.summaryDetail.fiftyTwoWeekHigh.fmt;
 
-  //Create <li> :  Average Volume
-  avgVolume.textContent = data.summaryDetail.averageVolume.fmt;
+    //Create <li> : Volume
+    volumePrice.textContent =
+      "Volume Price: " + response.summaryDetail.volume.fmt;
 
-  //Create <span> for colomn 2
-  //Create <ul> for col right
-  //Create <li> : Market Cap
-  marketCap.textContent = data.summaryDetail.marketCap.fmt;
+    //Create <li> :  Average Volume
+    avgVolume.textContent =
+      "Average Volume: " + response.summaryDetail.averageVolume.fmt;
 
-  //Create <li> : Beta (5 year Monthly)
-  beta.textContent = data.summaryDetail.beta.fmt;
+    //<span> for colomn 2
+    //<ul> for col right
+    //Create <li> : Market Cap
+    marketCap.textContent =
+      "Market Cap: " + response.summaryDetail.marketCap.fmt;
 
-  //Create <li> : PE Ration (TTM)
-  peRatio.textContent = data.summaryDetail.trailingPE.fmt;
+    //Create <li> : Beta (5 year Monthly)
+    beta.textContent =
+      "Beta (5 year Monthly): " + response.summaryDetail.beta.fmt;
 
-  //Create <li> : EPS (TTM)
+    //Create <li> : PE Ration (TTM)
+    peRatio.textContent =
+      "PE Ration (TTM): " + response.summaryDetail.trailingPE.fmt;
 
-  //Create <li> : Earnings Date
+    //Create <li> : EPS (TTM)
+    eps.textContent = "EPS (TTM): ";
 
-  //Create <li> : Forward Dividend & Yield
+    //Create <li> : Earnings Date
+    earningsDate.textContent =
+      "Earnings Date: " +
+      response.calendarEvents.earnings.earningsDate[0].fmt +
+      " to " +
+      response.calendarEvents.earnings.earningsDate[1].fmt;
 
-  //Create <li> : Ex-Dividend Date
-  //Create <li> : 1y Target Est
+    //Create <li> : Forward Dividend & Yield
+    forwardDividend.textContent =
+      "Forward Dividend & Yield: " + response.summaryDetail.dividendYield;
+
+    //Create <li> : Ex-Dividend Date
+    exDividend.textContent =
+      "Ex-Dividend Date: " + response.summaryDetail.exDividendDate.fmt;
+
+    //Create <li> : 1y Target Est
+    oneYearTarget.textContent =
+      "1y Target Est: " + response.financialData.targetMeanPrice.fmt;
+  });
 };
 
 //function to save to local storage
