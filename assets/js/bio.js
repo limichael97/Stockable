@@ -1,6 +1,6 @@
 // global variables
-//var companyInput = document.getElementById("company")
-var companyInput = "AMRN"
+var companyInput = document.getElementById("company")
+//var companyInput = "AMRN"
 var searchButton = document.getElementById("search-button")
 var tabDataContainer = document.getElementById("tab-data")
 var bioCompanyName = document.getElementById("bio-company-name")
@@ -41,8 +41,8 @@ var getProfileInfo = function(companyInput) {
 
     console.log(companyInput.value)
 
-    //var profileData = "https://yh-finance.p.rapidapi.com/stock/v2/get-profile?symbol=" + companyInput.value + "&region=US";
-    var profileData = "https://yh-finance.p.rapidapi.com/stock/v2/get-profile?symbol=AMD&region=US";
+    var profileData = "https://yh-finance.p.rapidapi.com/stock/v2/get-profile?symbol=" + companyInput.value + "&region=US";
+    //var profileData = "https://yh-finance.p.rapidapi.com/stock/v2/get-profile?symbol=AMD&region=US";
 
 
     fetch(profileData, {
@@ -76,7 +76,6 @@ var appendProfileInfo = function(profileData) {
     if ('addrress2' in profileData.assetProfile) {
         bioCompanyAd2.textContent = profileData.assetProfile.address2
     } else {
-       console.log("no-address-2")
        bioSector.classList.add("bio-sector-no-address2")
     }
     bioCompanyAd3.textContent = profileData.assetProfile.city + " " + profileData.assetProfile.state + ", " + profileData.assetProfile.zip
@@ -126,62 +125,39 @@ var getQuarterlyReports = function(profileData) {
     // add logic, if you cannot find filings in secFilings, N/A 
     // plug in NIO to check this    
 
-    var bioQuarterlyTr = document.createElement("tr")
-    var bioQuarterlyDateData0 = document.createElement("td")
-    var bioQuarterlyTitleData0 = document.createElement("td")
-    var bioQuarterlyTypeData0 = document.createElement("td")
-    var bioQuarterlyWebsiteData0 = document.createElement("td")
-    var bioQuarterlyWebsiteDataLink0 = document.createElement("a")
-
-
-
-
-    // my attempt of a do while loop
-
-    /*var secFilingsArray = profileData.secFilings.filings
-    console.log(secFilingsArray)
-    var i = 0
-    do {
-        console.log(secFilingsArray[i].title);
-        i++
-    } while(i < secFilingsArray.length && secFilingsArray[i].title != "Quarterly Report")*/
-
-
-    // working while loop only pulls back one line
-
-    /*var secFilingsArray = profileData.secFilings.filings
-    console.log(secFilingsArray)
-    var i = 0
-    while(i < secFilingsArray.length && secFilingsArray[i].title === "Quarterly Report") {
-        console.log(secFilingsArray[i].title);
-        i++
-    }*/
-
-
-    // original working for loop only pulls back one line
     
     for (i=0; i < profileData.secFilings.filings.length; i++) {
         if (profileData.secFilings.filings[i].title === "Quarterly Report") {
+
+            var bioQuarterlyTr = document.createElement("tr")
+            var bioQuarterlyDateData0 = document.createElement("td")
+            var bioQuarterlyTitleData0 = document.createElement("td")
+            var bioQuarterlyTypeData0 = document.createElement("td")
+            var bioQuarterlyWebsiteData0 = document.createElement("td")
+            var bioQuarterlyWebsiteDataLink0 = document.createElement("a")
+        
+
             bioQuarterlyDateData0.textContent = profileData.secFilings.filings[i].date
             bioQuarterlyTitleData0.textContent = profileData.secFilings.filings[i].title
             bioQuarterlyTypeData0.textContent = profileData.secFilings.filings[i].type
             bioQuarterlyWebsiteDataLink0.textContent = profileData.secFilings.filings[i].edgarUrl
             bioQuarterlyWebsiteDataLink0.setAttribute("href", profileData.secFilings.filings[i].edgarUrl)
             bioQuarterlyWebsiteDataLink0.setAttribute("target", "_blank")
+
+                
+            // a is appended to td
+            bioQuarterlyWebsiteData0.appendChild(bioQuarterlyWebsiteDataLink0)
+
+            // td is appended to tr
+            bioQuarterlyTr.appendChild(bioQuarterlyDateData0)
+            bioQuarterlyTr.appendChild(bioQuarterlyTitleData0)
+            bioQuarterlyTr.appendChild(bioQuarterlyTypeData0)
+            bioQuarterlyTr.appendChild(bioQuarterlyWebsiteData0)
+
+            // tr is appended to table
+            bioQuarterlyTable.appendChild(bioQuarterlyTr)
         } 
     }
-
-    // a is appended to td
-    bioQuarterlyWebsiteData0.appendChild(bioQuarterlyWebsiteDataLink0)
-
-    // td is appended to tr
-    bioQuarterlyTr.appendChild(bioQuarterlyDateData0)
-    bioQuarterlyTr.appendChild(bioQuarterlyTitleData0)
-    bioQuarterlyTr.appendChild(bioQuarterlyTypeData0)
-    bioQuarterlyTr.appendChild(bioQuarterlyWebsiteData0)
-
-    // tr is appended to table
-    bioQuarterlyTable.appendChild(bioQuarterlyTr)
 }
 
 var getCompanyOfficers = function(profileData) {
@@ -211,12 +187,7 @@ var getCompanyOfficers = function(profileData) {
         } else {
             bioEmployeePayData0.textContent = "N/A"
         }
-        /*var exists = profileData.assetProfile.companyOfficers[i].totalPay.hasOwnProperty('longFmt')
-        console.log(exists)
-        if (exists = true) {
-            bioEmployeePayData0.textContent = profileData.assetProfile.companyOfficers[i].totalPay.longFmt
-        }else console.log("you lose")*/
-        // td is appended to tr
+
         bioEmployeeTr.appendChild(bioEmployeeNameData0)
         bioEmployeeTr.appendChild(bioEmployeeAgeData0)
         bioEmployeeTr.appendChild(bioEmployeeTitleData0)
