@@ -90,6 +90,9 @@ async function getWeeklyData(){
       }
       for (i = 0; i < response.TSLA.close.length; i++) {
         monthlyPrices = response.TSLA.close[i];
+        monthlyPrices.toString().split(',');
+        //monthlyPrices.toString().split(",");
+        console.log(monthlyPrices);
        // console.log(monthlyPrices);
     
       }
@@ -98,7 +101,7 @@ async function getWeeklyData(){
   
 async function drawWeeklyChart(){
 //This function will be called once the ticker is passed an appropriate data is generated.
-  // await getWeeklyData();
+  await getWeeklyData();
     const ctx = document.getElementById('stock-chart').getContext('2d');
     const myChart = new Chart(ctx, {
         type: 'line',
