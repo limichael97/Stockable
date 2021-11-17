@@ -59,7 +59,7 @@ async function drawMonthlyChart(){
         data: {
             labels: ['January 01', 'February 02', 'March 03', 'April 04', 
             'May 05', 'June 06','July 07', 
-            'August 07','September 09','October 10','November 11','December 12'],
+            'August 08','September 09','October 10','November 11','December 12'],
             datasets: [{
                 label: 'Stock Price Monthly Trend ',
                 data: [1003, 1017, 1102,
