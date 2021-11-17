@@ -9,20 +9,6 @@ var monthlyPrices = [];
 var months = [];
 
 
-//Creating a chart for Monthly Trend
-
-monthlyBtnEl.addEventListener("click", function () {
-    drawMonthlyChart();
-  });
-
-//Creating chart weekly trends
-weeklyBtnEl.addEventListener("click", function () {
-    drawWeeklyChart();
-  });
-//Daily trend
-  dailyBtnEl.addEventListener("click", function () {
-    drawDailyChart();
-  });
 
 async function getMonthlyData(){
     const settings = {
@@ -225,4 +211,18 @@ async function drawDailyChart(){
         }
     });
 }
-drawMonthlyChart();
+drawWeeklyChart();
+//Creating a chart for Monthly Trend
+
+monthlyBtnEl.addEventListener("click", function () {
+  drawMonthlyChart();
+});
+
+//Creating chart weekly trends
+weeklyBtnEl.addEventListener("click", function () {
+  drawWeeklyChart();
+});
+//Daily trend
+dailyBtnEl.addEventListener("click", function () {
+  drawDailyChart();
+});
