@@ -3,7 +3,6 @@ var companyName = document.getElementById("companyName");
 var stock = document.getElementById("company");
 var tabData = document.getElementsByClassName("tab-data");
 var searchBtn = document.getElementsByClassName("is-info");
-// ka - changed above line to grab search-button is place of is-info
 var currentPrice = document.getElementById("current-price");
 var currentPriceText = document.getElementById("current-price-text");
 var percentChange = document.getElementById("percent-change");
@@ -182,9 +181,7 @@ var searchSave = function () {
 
 // event listener for search button
 $(".search-button").on("click", function (event) {
-  // ka - changed above reference from is-info to search-button
-  // ka - passed event in the function
-  event.preventDefault();   
+  event.preventDefault(); 
   stock = $("#company").val().trim();
   searchSave(stock);
 

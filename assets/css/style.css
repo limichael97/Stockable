@@ -7,9 +7,10 @@ header {
 }
 
 .header-image-container {
-    text-align: center;
+  display: flex;
+  margin: auto;
+  text-align: center;
 }
-/*ka - added above container class to center image */
 
 .hero {
     text-align: center;
@@ -57,37 +58,107 @@ header {
   }
 
 .headerText {
-    text-align: center;
-    padding: 50px;
-    font-weight:bold;
-    border-radius: 10px;
-    position: relative;
+  text-align: center;
+  padding: 50px;
+  font-weight: bold;
+  border-radius: 10px;
+  position: relative;
 }
 
 .img-position {
-    position: absolute;
-    left: 15px;
-    top:35px;
+  position: absolute;
+  left: 15px;
+  top: 35px;
+}
+
+.cryptoHeader {
+    width: 95%;
+
+}
+
+.cryptoHeader h1 {
+    overflow:auto;
+    white-space: nowrap;
 }
 
 .mainContainer {
-    width: 95%;
-    margin-left: auto;
-    margin-right:auto;
+  width: 95%;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .labelSearch {
-    height: 40px;
-    font-size: 20px;
+  height: 40px;
+  font-size: 20px;
 }
 .inputSearch {
-    height: 40px;
+  height: 40px;
 }
 
 .linkRemove a {
-    color:white;
-    text-decoration: none;
+  color: white;
+  text-decoration: none;
+}
+
+.stock-header-container h3 {
+  font-weight: bold;
+  color:white;
+  text-decoration: none;
     
+}
+
+.cryptoTab {
+    font-weight: bold;
+    width:80%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.noWrap {
+    display: inline-block;
+}
+
+.positiveChange {
+    color: green;
+}
+
+.negativeChange {
+    color: red;
+}
+
+.imageSize {
+    height: 15px;
+    width: 15px;
+}
+
+.elementFlex {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.divContainer {
+    flex-direction: column;
+    width:80%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+table {
+    width: 100%;
+}
+
+.pageStyle {
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.borderLine {
+    border-bottom: 1px solid rgb(221, 221, 221);
+}
+
+.cursorHover {
+    cursor: pointer;
 }
 
 .bio-tab {
