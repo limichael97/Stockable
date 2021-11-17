@@ -1,7 +1,7 @@
 // global variables
 // grab symbol from local storage
 //var companyInput = document.getElementById("company")
-var companyInput = "AMRN"
+var companyInput = "TSLA"
 var searchButton = document.getElementById("search-button")
 var tabDataContainer = document.getElementById("tab-data")
 var bioCompanyName = document.getElementById("bio-company-name")
@@ -43,7 +43,7 @@ var getProfileInfo = function(companyInput) {
     console.log(companyInput.value)
 
     //var profileData = "https://yh-finance.p.rapidapi.com/stock/v2/get-profile?symbol=" + companyInput.value + "&region=US";
-    var profileData = "https://yh-finance.p.rapidapi.com/stock/v2/get-profile?symbol=AMD&region=US";
+    var profileData = "https://yh-finance.p.rapidapi.com/stock/v2/get-profile?symbol=TSLA&region=US";
 
 
     fetch(profileData, {

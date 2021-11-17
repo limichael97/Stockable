@@ -2,7 +2,59 @@ bio.css
 
 header {
     display: flex;
+    margin: auto;
+    text-align: center;
 }
+
+.header-image-container {
+    text-align: center;
+}
+/*ka - added above container class to center image */
+
+.hero {
+    text-align: center;
+    color: white;
+    /* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/#b8e1fc+0,a9d2f3+10,90bae4+25,90bcea+37,90bff0+50,6ba8e5+51,a2daf5+83,bdf3fd+100;Blue+Gloss+%231 */
+    background: #b8e1fc; /* Old browsers */
+    background: -moz-linear-gradient(
+      left,
+      #b8e1fc 0%,
+      #a9d2f3 10%,
+      #90bae4 25%,
+      #90bcea 37%,
+      #90bff0 50%,
+      #6ba8e5 51%,
+      #a2daf5 83%,
+      #bdf3fd 100%
+    ); /* FF3.6-15 */
+    background: -webkit-linear-gradient(
+      left,
+      #b8e1fc 0%,
+      #a9d2f3 10%,
+      #90bae4 25%,
+      #90bcea 37%,
+      #90bff0 50%,
+      #6ba8e5 51%,
+      #a2daf5 83%,
+      #bdf3fd 100%
+    ); /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(
+      to right,
+      #b8e1fc 0%,
+      #a9d2f3 10%,
+      #90bae4 25%,
+      #90bcea 37%,
+      #90bff0 50%,
+      #6ba8e5 51%,
+      #a2daf5 83%,
+      #bdf3fd 100%
+    ); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#b8e1fc', endColorstr='#bdf3fd',GradientType=1 ); /* IE6-9 */
+  }
+
+  .hero p {
+    color: white;
+  }
 
 .headerText {
     text-align: center;
