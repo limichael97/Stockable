@@ -1,7 +1,7 @@
 // global variables
 // grab symbol from local storage
-//var companyInput = document.getElementById("company")
-var companyInput = "TSLA"
+var companyInput = document.getElementById("company")
+//var companyInput = "TSLA"
 var searchButton = document.getElementById("search-button")
 var tabDataContainer = document.getElementById("tab-data")
 var bioCompanyName = document.getElementById("bio-company-name")
@@ -33,6 +33,16 @@ var bioEmployeeTitleHeader = document.getElementById("bio-employee-title-header"
 var bioEmployeePayHeader = document.getElementById("bio-employee-pay-header")
 
 
+var getFromLocal = function() {
+    var companyName = localStorage.getItem("Company-Name")
+    console.log(companyName)
+
+    companyInput.value = companyName
+    console.log(companyInput.value)
+
+    getProfileInfo(companyInput)
+
+}
 
 
 
@@ -42,8 +52,8 @@ var getProfileInfo = function(companyInput) {
 
     console.log(companyInput.value)
 
-    //var profileData = "https://yh-finance.p.rapidapi.com/stock/v2/get-profile?symbol=" + companyInput.value + "&region=US";
-    var profileData = "https://yh-finance.p.rapidapi.com/stock/v2/get-profile?symbol=TSLA&region=US";
+    var profileData = "https://yh-finance.p.rapidapi.com/stock/v2/get-profile?symbol=" + companyInput.value + "&region=US";
+    //var profileData = "https://yh-finance.p.rapidapi.com/stock/v2/get-profile?symbol=TSLA&region=US";
 
 
     fetch(profileData, {
@@ -220,7 +230,9 @@ var getCompanyOfficers = function(profileData) {
     bioEmployeeRowBody.appendChild(bioEmployeePayData0)
 }*/
 
-getProfileInfo(companyInput)
+
+getFromLocal()
+//getProfileInfo(companyInput)
 
 
 // add my own logic for when seach button is pressed
