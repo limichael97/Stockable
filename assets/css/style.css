@@ -1,38 +1,113 @@
+bio.css
+
 header {
     display: flex;
+    margin: auto;
+    justify-content: center;
 }
 
-.headerText {
+.header-image-container {
+  display: flex;
+  margin: auto;
+  text-align: center;
+}
+
+.cryptoBtn {
+    position: absolute;
+    left: 10px;
+    top:10px;
+}
+.hero {
     text-align: center;
-    padding: 50px;
-    font-weight:bold;
-    border-radius: 10px;
-    position: relative;
+    color: white;
+    /* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/#b8e1fc+0,a9d2f3+10,90bae4+25,90bcea+37,90bff0+50,6ba8e5+51,a2daf5+83,bdf3fd+100;Blue+Gloss+%231 */
+    background: #b8e1fc; /* Old browsers */
+    background: -moz-linear-gradient(
+      left,
+      #b8e1fc 0%,
+      #a9d2f3 10%,
+      #90bae4 25%,
+      #90bcea 37%,
+      #90bff0 50%,
+      #6ba8e5 51%,
+      #a2daf5 83%,
+      #bdf3fd 100%
+    ); /* FF3.6-15 */
+    background: -webkit-linear-gradient(
+      left,
+      #b8e1fc 0%,
+      #a9d2f3 10%,
+      #90bae4 25%,
+      #90bcea 37%,
+      #90bff0 50%,
+      #6ba8e5 51%,
+      #a2daf5 83%,
+      #bdf3fd 100%
+    ); /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(
+      to right,
+      #b8e1fc 0%,
+      #a9d2f3 10%,
+      #90bae4 25%,
+      #90bcea 37%,
+      #90bff0 50%,
+      #6ba8e5 51%,
+      #a2daf5 83%,
+      #bdf3fd 100%
+    ); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#b8e1fc', endColorstr='#bdf3fd',GradientType=1 ); /* IE6-9 */
+  }
+
+  .hero p {
+    color: white;
+  }
+
+.headerText {
+  text-align: center;
+  padding: 50px;
+  font-weight: bold;
+  border-radius: 10px;
+  position: relative;
 }
 
 .img-position {
-    position: absolute;
-    left: 15px;
-    top:35px;
+  position: absolute;
+  left: 15px;
+  top: 35px;
+}
+
+.cryptoHeader {
+    width: 95%;
+
+}
+
+.cryptoHeader h1 {
+    overflow:auto;
+    white-space: nowrap;
 }
 
 .mainContainer {
-    width: 95%;
-    margin-left: auto;
-    margin-right:auto;
+  width: 95%;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .labelSearch {
-    height: 40px;
-    font-size: 20px;
+  height: 40px;
+  font-size: 20px;
 }
 .inputSearch {
-    height: 40px;
+  height: 40px;
 }
 
 .linkRemove a {
-    color:white;
-    text-decoration: none;
+  color: white;
+  text-decoration: none;
+}
+
+.stock-header-container h3 {
+  font-weight: bold;
+  text-decoration: none;
     
 }
 
@@ -66,4 +141,104 @@ header {
 .chart-btn-container{
     display: flex;
     justify-content: center;
+}
+.cryptoTab {
+    font-weight: bold;
+    width:80%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.noWrap {
+    display: inline-block;
+}
+
+.positiveChange {
+    color: green;
+}
+
+.negativeChange {
+    color: red;
+}
+
+.imageSize {
+    height: 15px;
+    width: 15px;
+}
+
+.elementFlex {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.divContainer {
+    flex-direction: column;
+    width:80%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+table {
+    width: 100%;
+}
+
+.pageStyle {
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.borderLine {
+    border-bottom: 1px solid rgb(221, 221, 221);
+}
+
+.cursorHover {
+    cursor: pointer;
+}
+
+.bio-tab {
+    background-color: hsl(204, 86%, 53%);
+    color: white;
+}
+
+.bio-company-name {
+    font-weight: bold;
+    padding-bottom: 10px;
+}
+
+.address-section {
+    padding-bottom: 20px;
+    border-bottom: 2px solid hsl(204, 86%, 53%);
+}
+
+.bio-description-header {
+    font-weight: bold;
+    padding-bottom: 10px;
+}
+
+.bio-sector {
+    padding-top: 110px;
+}
+
+.bio-sector-no-address2 {
+    padding-top: 82px;
+}
+
+.bio-industry-container {
+    text-align: right;
+}
+
+.bio-description-container {
+    padding-bottom: 30px;
+    border-bottom: 2px solid hsl(204, 86%, 53%);
+}
+
+.bio-quarterly-header, .bio-employee-header {
+    font-weight: bold;
+    padding-bottom: 20px;
+}
+
+.bio-quarterly-container {
+    padding-bottom: 30px;
+    border-bottom: 2px solid hsl(204, 86%, 53%);
 }

@@ -8,11 +8,79 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
     <link rel="stylesheet" href="./assets/css/style.css" />
-    <title>Crypto</title>
+    <title>Cryptocurrencies</title>
 </head>
 <body>
 
+    <main>
+
+        <!-- Header -->
+        <header class = "header-image-container ">
+            <div class="">
+                <img src="./assets/images/stockable header image.png" alt="logo" width="65%"/>
+            </div>
+
+            <button class ="button is-info linkRemove cryptoBtn" id = "stockIdBtn">
+                <a href = "./index.html" > Stocks </a>
+            </button>
+
+        </header>
+  
+        <!--Hero-->
+        <section class="hero is-medium">
+            <div class="hero-body">
+              <p class="title">
+                SEARCH.  RESEARCH.  INVEST
+              </p>
+            </div>
+        </section>
+
+        <section>
+            <div class = "pageStyle">
+                <h2 class = "title is-2 has-text-centered py-4"> Today's Cryptocurrencies by Market Cap</h2>
+
+                
+                <div class = "" id= "">
+                    <table id = "table">
+                        <thead id ="tableHeader"> 
+                            <tr>
+                                <th class = "cursorHover has-text-centered " id = "sortRank"  >Rank</th>
+        
+                                <th class = "cursorHover  has-text-centered" id = "sortName" > Name</th>
+                            
+                                <th class = "cursorHover " id = "sortPrice"> Price</th>
+            
+                                <th class = "cursorHover " id = "sortChange"> 24 Hour (%)</th>
+            
+                                <th class = "cursorHover " id = "sortCap"> Market Cap</th>
+            
+                                <th class = "cursorHover " id = "sortVolume"> Volume (24 Hour)</th>
+            
+                                <th class = "cursorHover " id = "sortSupply"> Circulating Supply</th>
+                            </tr>
+                        </thead>
+
+                        <tbody id = "tableData">
+
+                        </tbody>
+
     
+                        
+                    </table>
+  
+                </div>
+
+            </div>
+
+
+
+            <div id = "cryptoHere">
+
+            </div>
+        </section>
+    </main>
+
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     <script src="./assets/js/crypto.js"></script>
 </body>
 </html>
