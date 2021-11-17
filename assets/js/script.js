@@ -180,8 +180,8 @@ var searchSave = function () {
 };
 
 // event listener for search button
-$(".search-button").on("click", function () {
-  event.preventDefault();
+$(".search-button").on("click", function (event) {
+  event.preventDefault(); 
   stock = $("#company").val().trim();
   searchSave(stock);
 
