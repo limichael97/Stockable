@@ -9,20 +9,6 @@ var monthlyPrices = [];
 var months = [];
 
 
-//Creating a chart for Monthly Trend
-document.addEventListener('DOMContentLoaded',function(){
-monthlyBtnEl.addEventListener("click", function () {
-    drawMonthlyChart();
-  });
-});
-//Creating chart weekly trends
-weeklyBtnEl.addEventListener("click", function () {
-    drawWeeklyChart();
-  });
-//Daily trend
-  dailyBtnEl.addEventListener("click", function () {
-    drawDailyChart();
-  });
 
 async function getMonthlyData(){
     const settings = {
@@ -59,7 +45,7 @@ async function drawMonthlyChart(){
         data: {
             labels: ['January 01', 'February 02', 'March 03', 'April 04', 
             'May 05', 'June 06','July 07', 
-            'August 07','September 09','October 10','November 11','December 12'],
+            'August 08','September 09','October 10','November 11','December 12'],
             datasets: [{
                 label: 'Stock Price Monthly Trend ',
                 data: [1003, 1017, 1102,
@@ -104,6 +90,9 @@ async function getWeeklyData(){
       }
       for (i = 0; i < response.TSLA.close.length; i++) {
         monthlyPrices = response.TSLA.close[i];
+        monthlyPrices.toString().split(',');
+        //monthlyPrices.toString().split(",");
+        console.log(monthlyPrices);
        // console.log(monthlyPrices);
     
       }
@@ -112,7 +101,7 @@ async function getWeeklyData(){
   
 async function drawWeeklyChart(){
 //This function will be called once the ticker is passed an appropriate data is generated.
-  // await getWeeklyData();
+  await getWeeklyData();
     const ctx = document.getElementById('stock-chart').getContext('2d');
     const myChart = new Chart(ctx, {
         type: 'line',
@@ -225,3 +214,18 @@ async function drawDailyChart(){
         }
     });
 }
+drawWeeklyChart();
+//Creating a chart for Monthly Trend
+
+monthlyBtnEl.addEventListener("click", function () {
+  drawMonthlyChart();
+});
+
+//Creating chart weekly trends
+weeklyBtnEl.addEventListener("click", function () {
+  drawWeeklyChart();
+});
+//Daily trend
+dailyBtnEl.addEventListener("click", function () {
+  drawDailyChart();
+});
