@@ -10,11 +10,11 @@ var months = [];
 
 
 //Creating a chart for Monthly Trend
-document.addEventListener('DOMContentLoaded',function(){
+
 monthlyBtnEl.addEventListener("click", function () {
     drawMonthlyChart();
   });
-});
+
 //Creating chart weekly trends
 weeklyBtnEl.addEventListener("click", function () {
     drawWeeklyChart();
@@ -225,3 +225,4 @@ async function drawDailyChart(){
         }
     });
 }
+drawMonthlyChart();
