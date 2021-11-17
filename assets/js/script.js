@@ -81,7 +81,7 @@ var appendStockHeader = function (data) {
       "(" + response.price.regularMarketChange.fmt + ")";
 
     //Append <span> at close text with date
-    atClose.textContent = "Close: 4:00PM EST";
+    atClose.textContent = "[Close: 4:00PM EST]";
 
     //<div> for at After Hours Colomn
     //Append <span> for Price at after hours
@@ -93,7 +93,7 @@ var appendStockHeader = function (data) {
       "(" + response.price.postMarketChange.fmt + ")";
 
     //Append <span> after hours text with date
-    afterHours.textContent = "After hours";
+    afterHours.textContent = "[After hours]";
 
     //function to display data on tabData <div>
     //<span> for colomn 1
@@ -150,7 +150,7 @@ var appendStockHeader = function (data) {
 
     //Create <li> : EPS (TTM)
     eps.textContent = "EPS (TTM): ";
-    epsText.textContent = " - ";
+    epsText.textContent = " -- ";
 
     //Create <li> : Earnings Date
     earningsDate.textContent = "Earnings Date: ";
@@ -161,11 +161,11 @@ var appendStockHeader = function (data) {
 
     //Create <li> : Forward Dividend & Yield
     forwardDividend.textContent = "Forward Dividend & Yield: ";
-    forwardDividendText.textContent = response.summaryDetail.dividendYield;
+    forwardDividendText.textContent = " -- ";
 
     //Create <li> : Ex-Dividend Date
     exDividend.textContent = "Ex-Dividend Date: ";
-    exDividendText.textContent = response.summaryDetail.exDividendDate.fmt;
+    exDividendText.textContent = " -- ";
 
     //Create <li> : 1y Target Est
     oneYearTarget.textContent = "1y Target Est: ";
