@@ -58,7 +58,7 @@ var appendStockHeader = function (companyInput) {
       method: "GET",
       headers: {
         "x-rapidapi-host": "yh-finance.p.rapidapi.com",
-        "x-rapidapi-key": "a29fbe9c28msh71e0cd6dc87bf47p1d2f3ajsn06e1579a357f",
+        "x-rapidapi-key": "bcf226c698msh087777986892404p16f1dejsn892bbb810e0b",
       },
     }).then(function (response) {
       debugger;
@@ -115,7 +115,7 @@ var getProfileInfo = function(companyInput) {
         "method": "GET",
         "headers": {
             "x-rapidapi-host": "yh-finance.p.rapidapi.com",
-            "x-rapidapi-key": "a29fbe9c28msh71e0cd6dc87bf47p1d2f3ajsn06e1579a357f"
+            "x-rapidapi-key": "bcf226c698msh087777986892404p16f1dejsn892bbb810e0b"
         }
     })
     .then(function(response) {
