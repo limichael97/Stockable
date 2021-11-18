@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css?family=IBM+Plex+Sans:400,400i,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
+    <link rel="stylesheet" href="./assets/css/style.css" />
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@3.6.0/dist/chart.min.js"></script>
+    <title>Chart</title>
+</head>
+
+<body>
+    <main>
+         <!-- Header -->
+         <header>
+            <div class="header-image-container">
+            <!-- ka - had to add class to div above class = "header-image-container"-->
+                <img src="./assets/images/stockable header image.png" alt="logo" width="65%"/>
+            </div>
+        </header>
+
+        <!--Hero-->
+        <section class="hero is-medium">
+            <div class="hero-body">
+                <p class="title">SEARCH.  RESEARCH.  INVEST</p>
+                <p class="subtitle"></p>
+            </div>
+        </section>
+
+        <section class="mainContainer">
+            <!-- Search Bar and buttons to toggle-->
+            <section class="columns">
+              <div class="search-bar-container column is-half mt-3 mr-3" id="">
+                    <form id="searchInput" class="">
+                        <label class="labelSearch" for="company"><strong>Enter company:</strong> </label>
+                        <input
+                            name="company"
+                            id="company"
+                            type="text"
+                            autofocus="true"
+                            class="inputSearch"
+                            placeholder="e.g. TSLA"
+                        />
+                        <button type="submit" class="button is-info ml-3 search-button">Search</button>
+                        <!-- ka - added class = search-button -->
+                    </form>
+                </div>
+    
+                <div
+                    class="toggle-container column is-half has-text-centered m-3"
+                    id=""
+                >
+                    <button class="button is-info" id="stockIdBtn"><a href="./index.html"></a>Stocks</a></button>
+        
+                    <button class="button is-info linkRemove" id="cryptoIdBtn">
+                    <a href="./crypto.html"> Crypto </a>
+                    </button>
+                </div>
+        </section>    
+
+            <!-- Stock Data Container-->
+            <section>
+                <div class="stock-header-container" id="">
+                    <h3 class="" id="companyName"></h3>
+        
+                    <span id="subtitle"> </span>
+        
+                    <table class="column table">
+                    <tr>   
+                        <th id="current-price"></th>
+                        <td id="current-price-text"></td>
+        
+                        <td id="percent-change"></td>
+        
+                        <td id="at-close"></td>
+                        <th id="post-market-price"></th>
+                    <td id="post-market-price-text"></td> 
+        
+                        <td id="post-market-change"></td>
+        
+                        <td id="after-hours"></td>
+                        </tr>
+                    </table>
+                </div>
+              </section>
+
+
+            <!-- tabs-->
+            <section>
+                <div class ="mt-4 column is-four-fifths" id ="">
+                    <a class = "p-2 mr-5" href = "./index.html" > Summary </a>
+                    <a class = "p-2 mr-5" href = "./bio.html" > Bio </a>
+                    <!-- removed class from bio tab .bio-tab-->
+                    <a class = "p-2 mr-5" href = "./chart.html" > Chart </a>
+                </div>
+
+            </section>
+
+
+            <!--Tab Data-->
+            <section class="charts-main-section">
+                <div class="chart-divider"></div>
+                <div class="chart-tab-data" id="filter-btns">
+                    </div>
+                    <div class="chart-btn-container">
+                        <button type="button" class="button is-info ml-3" id="btn-monthly">Monthly</button>
+                        <button type="button" class="button is-info ml-3" id="btn-weekly">Weekly</button>
+                        <button type="button" class="button is-info ml-3" id="btn-daily">Daily</button>
+                    </div>
+                </div>
+                <div class="card" id="charts-card">
+                    <canvas id="stock-chart"></canvas>
+                    <!-- <canvas id="stock-chart-monthly"></canvas>
+                    <canvas id="stock-chart-daily"></canvas>  -->
+                </div>
+            </section>
+
+        </section>
+
+
+        <!-- Footer -->
+        <section>
+            <footer class="footer ml-4">
+                <span> Created by Kimberly Amaya, Lauren De Guzman, Michael Li, Nelson Roberts</span>
+            </footer>
+        </section>
+
+    </main>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+        integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+      <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="./assets/js/chart.js"></script>
+
+</body>
+
+</html>
