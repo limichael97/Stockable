@@ -9,6 +9,7 @@ header {
 .header-image-container {
   margin: auto;
   text-align: center;
+  align-items: center;
 }
 
 .cryptoBtn {
