@@ -40,9 +40,64 @@ var getFromLocal = function() {
     companyInput.value = companyName
     console.log(companyInput.value)
 
+    appendStockHeader(companyInput)
     getProfileInfo(companyInput)
+    
 
 }
+
+// get API function for stock-header-container
+var appendStockHeader = function (companyInput) {
+    queryUrl =
+      "https://yh-finance.p.rapidapi.com/stock/v2/get-summary?symbol=" +
+      companyInput.value +
+      "&region=US";
+  
+    $.ajax({
+      url: queryUrl,
+      method: "GET",
+      headers: {
+        "x-rapidapi-host": "yh-finance.p.rapidapi.com",
+        "x-rapidapi-key": "2ce7468985msh2300cf13fac2d74p1ebd78jsn379acef727cd",
+      },
+    }).then(function (response) {
+      debugger;
+      console.log(response);
+  
+      //Append <h3> with company name
+      companyName.textContent = response.price.longName;
+  
+      //Append <span> for subtitle
+      subtitle.textContent =
+        "NasdaqGS - NasdaqGS Real Time Price. Currency in USD";
+  
+      //<div> for at close column
+      //Append <span> for Current Price
+      currentPrice.textContent = "Current Price: ";
+      currentPriceText.textContent = response.financialData.currentPrice.fmt;
+  
+      //Append <span> percent change - Price at close
+      percentChange.textContent =
+        "(" + response.price.regularMarketChange.fmt + ")";
+  
+      //Append <span> at close text with date
+      atClose.textContent = "[Close: 4:00PM EST]";
+  
+      //<div> for at After Hours Colomn
+      //Append <span> for Price at after hours
+      postMarketPrice.textContent = "Post Market Price: ";
+      postMarketPriceText.textContent = response.price.postMarketPrice.fmt;
+  
+      //Append <span> percent change - after hours
+      postMarketChange.textContent =
+        "(" + response.price.postMarketChange.fmt + ")";
+  
+      //Append <span> after hours text with date
+      afterHours.textContent = "[After hours]";
+    })
+}
+
+  
 
 
 
