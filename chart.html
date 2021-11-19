@@ -36,7 +36,7 @@
             <section class="columns">
               <div class="search-bar-container column is-half mt-3 mr-3" id="">
                     <form id="searchInput" class="">
-                        <label class="labelSearch" for="company"><strong>Enter company:</strong> </label>
+                        <label class="labelSearch" for="company"><strong>Enter company ticker:</strong> </label>
                         <input
                             name="company"
                             id="company"
@@ -44,6 +44,7 @@
                             autofocus="true"
                             class="inputSearch"
                             placeholder="e.g. TSLA"
+                            maxlength = "5" 
                         />
                         <button type="submit" class="button is-info ml-3 search-button">Search</button>
                         <!-- ka - added class = search-button -->
