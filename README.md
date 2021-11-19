@@ -23,13 +23,13 @@ THEN I am presented with current stock trends
 # Stockable Screen Shots
 
 - **Summary Page:**
-  ![Summary Tab]()
+  ![Summary Tab](https://github.com/limichael97/Stockable/blob/feature/summary-page/assets/images/Stockable%20-Summary%20Page.png?raw=true)
 - **Bio Page:**
-  ![Bio Tab]()
+  ![Bio Tab](https://github.com/limichael97/Stockable/blob/feature/summary-page/assets/images/Stockable-%20Bio%20Page.png?raw=true)
 - **Chart Page:**
-  ![Chart Tab]()
+  ![Chart Tab](https://github.com/limichael97/Stockable/blob/feature/summary-page/assets/images/Stockable%20-%20Chart%20Page.png?raw=true)
 - **Crypto Page:**
-  ![Crypto Tab]()
+  ![Crypto Tab](https://github.com/limichael97/Stockable/blob/feature/summary-page/assets/images/Stockable%20-%20Crypto%20Page.png?raw=true)
 
 # Technical Skills
 
