@@ -119,14 +119,13 @@ bio.css header {
   justify-content: center;
   margin-top: 10px;
 }
-#charts-card {
-  display: flex;
-  padding: 40px;
-  width: 900px;
-  height: 600px;
-  margin-top: 20px;
-  align-items: center;
-  margin-bottom: 20px;
+
+#charts-card{
+    display: flex;
+    padding:40px;
+    margin-top: 20px;
+    align-items: center;
+    margin-bottom: 20px;
 }
 
 .charts-main-section {
@@ -134,9 +133,26 @@ bio.css header {
   flex-direction: column;
   align-items: center;
 }
+
+#charts-container{
+    display: flex;
+    flex-direction: column;
+    
+}
+.button{
+    margin-top: 20px;
+}
+
+#chart{
+    padding:20px;
+    margin:20px;
+    width:900px;
+    height:600px;
+}
 .chart-btn-container {
   display: flex;
   justify-content: center;
+
 }
 .cryptoTab {
   font-weight: bold;
