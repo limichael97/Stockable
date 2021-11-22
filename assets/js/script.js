@@ -181,7 +181,7 @@ var searchSave = function () {
 
 // event listener for search button
 $(".search-button").on("click", function (event) {
-  event.preventDefault(); 
+  event.preventDefault();
   stock = $("#company").val().trim();
   searchSave(stock);
 
