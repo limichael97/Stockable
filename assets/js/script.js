@@ -59,7 +59,7 @@ var appendStockHeader = function (data) {
     method: "GET",
     headers: {
       "x-rapidapi-host": "yh-finance.p.rapidapi.com",
-      "x-rapidapi-key": "bcf226c698msh087777986892404p16f1dejsn892bbb810e0b",
+      "x-rapidapi-key": "5fc965876amsh06320411b49674ep1a1b93jsnd274b891d2c5",
     },
 
   }).then(function (response) {
