@@ -127,8 +127,6 @@ header {
 #charts-card{
     display: flex;
     padding:40px;
-    width:900px;
-    height:600px;
     margin-top: 20px;
     align-items: center;
     margin-bottom: 20px;
@@ -139,9 +137,21 @@ header {
     flex-direction: column;
     align-items: center;
 }
-.chart-btn-container{
+#charts-container{
     display: flex;
-    justify-content: center;
+    flex-direction: column;
+    
+}
+.button{
+    margin-top: 20px;
+}
+
+#chart{
+    padding:20px;
+    margin:20px;
+    width:900px;
+    height:600px;
+
 }
 .cryptoTab {
     font-weight: bold;
