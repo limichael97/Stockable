@@ -1,7 +1,6 @@
 // global variables
 // grab symbol from local storage
 var companyInput = document.getElementById("company");
-//var companyInput = "TSLA"
 var searchButton = document.getElementById("search-button");
 var tabDataContainer = document.getElementById("tab-data");
 var bioCompanyName = document.getElementById("bio-company-name");
@@ -14,46 +13,35 @@ var bioCompanyAd6 = document.getElementById("bio-company-website");
 var addressSectionBorder = document.getElementById("address-section");
 var bioDescriptionHeader = document.getElementById("bio-description-header");
 var bioDescription = document.getElementById("bio-description");
-var bioDescriptionContainer = document.getElementById(
-  "bio-description-container"
-);
+var bioDescriptionContainer = document.getElementById("bio-description-container");
 var bioIndustry = document.getElementById("bio-industry");
 var bioEmployees = document.getElementById("bio-employees");
 var bioSector = document.getElementById("bio-sector");
 var bioQuarterlyHeader = document.getElementById("bio-quarterly-header");
 var bioQuarterlyTable = document.getElementById("bio-quarterly-table");
-var bioQuarterlyDateHeader = document.getElementById(
-  "bio-quarterly-date-header"
-);
-var bioQuarterlyTitleHeader = document.getElementById(
-  "bio-quarterly-title-header"
-);
-var bioQuarterlyTypeHeader = document.getElementById(
-  "bio-quarterly-type-header"
-);
-var bioQuarterlyWebsiteHeader = document.getElementById(
-  "bio-quarterly-website-header"
-);
+var bioQuarterlyDateHeader = document.getElementById("bio-quarterly-date-header");
+var bioQuarterlyTitleHeader = document.getElementById("bio-quarterly-title-header");
+var bioQuarterlyTypeHeader = document.getElementById("bio-quarterly-type-header");
+var bioQuarterlyWebsiteHeader = document.getElementById("bio-quarterly-website-header");
 var bioQuarterlyContainer = document.getElementById("bio-quarterly-container");
 var bioEmployeeHeader = document.getElementById("bio-employee-header");
 var bioEmployeeTable = document.getElementById("bio-employee-table");
 var bioEmployeeNameHeader = document.getElementById("bio-employee-name-header");
 var bioEmployeeAgeHeader = document.getElementById("bio-employee-age-header");
-var bioEmployeeTitleHeader = document.getElementById(
-  "bio-employee-title-header"
-);
+var bioEmployeeTitleHeader = document.getElementById("bio-employee-title-header");
 var bioEmployeePayHeader = document.getElementById("bio-employee-pay-header");
 
+
+// get ticket symbol from local storage
 var getFromLocal = function () {
   var companyName = localStorage.getItem("Company-Name");
-  console.log(companyName);
 
   companyInput.value = companyName;
-  console.log(companyInput.value);
 
   appendStockHeader(companyInput);
   getProfileInfo(companyInput);
 };
+
 
 // get API function for stock-header-container
 var appendStockHeader = function (companyInput) {
@@ -70,7 +58,6 @@ var appendStockHeader = function (companyInput) {
       "x-rapidapi-key": "bcf226c698msh087777986892404p16f1dejsn892bbb810e0b",
     },
   }).then(function (response) {
-    debugger;
     console.log(response);
 
     //Append <h3> with company name
@@ -124,16 +111,18 @@ var getProfileInfo = function (companyInput) {
       "x-rapidapi-key": "bcf226c698msh087777986892404p16f1dejsn892bbb810e0b",
     },
   })
-    .then(function (response) {
-      response.json().then(function (profileData) {
-        console.log(profileData);
-        console.log(profileData.assetProfile.address1);
-        appendProfileInfo(profileData);
-      });
-    })
+
+  .then(function (response) {
+    response.json().then(function (profileData) {
+      console.log(profileData);
+      console.log(profileData.assetProfile.address1);
+      appendProfileInfo(profileData);
+    });
+  })
+
     // error handling
-    .catch((err) => {
-      console.error(err);
+    .catch(function (error) {
+      console.log("ok");
     });
 };
 
@@ -175,14 +164,6 @@ var appendProfileInfo = function (profileData) {
   bioDescription.textContent = profileData.assetProfile.longBusinessSummary;
   bioDescriptionContainer.classList.add("bio-description-container");
 
-  // quarterly reports section
-  /*bioQuarterlyDateData0.textContent = profileData.secFilings.filings[0].date
-    bioQuarterlyTitleData0.textContent = profileData.secFilings.filings[0].title
-    bioQuarterlyTypeData0.textContent = profileData.secFilings.filings[0].type
-    bioQuarterlyWebsiteDataLink0.textContent = profileData.secFilings.filings[0].edgarUrl
-    bioQuarterlyWebsiteDataLink0.setAttribute("href", profileData.secFilings.filings[0].edgarUrl)
-    bioQuarterlyWebsiteDataLink0.setAttribute("target", "_blank")*/
-
   // call the function
   getQuarterlyReports(profileData);
   getCompanyOfficers(profileData);
@@ -217,10 +198,7 @@ var getQuarterlyReports = function (profileData) {
         profileData.secFilings.filings[i].type;
       bioQuarterlyWebsiteDataLink0.textContent =
         profileData.secFilings.filings[i].edgarUrl;
-      bioQuarterlyWebsiteDataLink0.setAttribute(
-        "href",
-        profileData.secFilings.filings[i].edgarUrl
-      );
+      bioQuarterlyWebsiteDataLink0.setAttribute("href",profileData.secFilings.filings[i].edgarUrl);
       bioQuarterlyWebsiteDataLink0.setAttribute("target", "_blank");
 
       // a is appended to td
@@ -277,37 +255,4 @@ var getCompanyOfficers = function (profileData) {
   }
 };
 
-/*var getCompanyOfficers = function(profileData) {
-
-    //bioEmployeeRowBody = ""
-    bioEmployeeHeader.textContent = "Company Officers"
-
-    var bioEmployeeNameData0 = document.createElement("td")
-    bioEmployeeNameData0.textContent = profileData.assetProfile.companyOfficers[0].name
-    bioEmployeeRowBody.appendChild(bioEmployeeNameData0)
-
-    var bioEmployeeAgeData0 = document.createElement("td")
-    bioEmployeeAgeData0.textContent = profileData.assetProfile.companyOfficers[0].age
-    bioEmployeeRowBody.appendChild(bioEmployeeAgeData0)
-
-    var bioEmployeeTitleData0 = document.createElement("td")
-    bioEmployeeTitleData0.textContent = profileData.assetProfile.companyOfficers[0].title
-    bioEmployeeRowBody.appendChild(bioEmployeeTitleData0)
-
-    var bioEmployeePayData0 = document.createElement("td")
-    bioEmployeePayData0.textContent = "$" + profileData.assetProfile.companyOfficers[0].totalPay.longFmt
-    bioEmployeeRowBody.appendChild(bioEmployeePayData0)
-}*/
-
 getFromLocal();
-//getProfileInfo(companyInput)
-
-// add my own logic for when seach button is pressed
-
-/*var inputHandler = function(event) {
-    event.preventDefault();
-
-    getProfileInfo(companyInput)
-}
-
-searchButton.addEventListener("click",inputHandler)*/
