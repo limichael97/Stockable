@@ -59,8 +59,9 @@ var appendStockHeader = function (data) {
     method: "GET",
     headers: {
       "x-rapidapi-host": "yh-finance.p.rapidapi.com",
-      "x-rapidapi-key": "2ce7468985msh2300cf13fac2d74p1ebd78jsn379acef727cd",
+      "x-rapidapi-key": "5fc965876amsh06320411b49674ep1a1b93jsnd274b891d2c5",
     },
+
   }).then(function (response) {
     console.log(response);
 
@@ -170,7 +171,38 @@ var appendStockHeader = function (data) {
     //Create <li> : 1y Target Est
     oneYearTarget.textContent = "1y Target Est: ";
     oneYearTargetText.textContent = response.financialData.targetMeanPrice.fmt;
-  });
+  })
+
+
+  // ka - add modal
+  .catch(function (response) {
+    if (response.status === 302 || response.status === 400) {
+      console.log("reponse is 302 or 400")
+      var modal = document.getElementById("modal")
+      modal.classList.toggle("is-active")
+  
+      var modalContent = document.getElementById("modal-content")
+      modalContent.innerHTML = ""
+  
+      var modalHeader = document.createElement("h3")
+      modalHeader.textContent = "Incorrect Ticker"
+      modalHeader.classList.add("title", "mb-6", "has-text-link")
+  
+      var modalText = document.createElement("p")
+      modalText.textContent = "try again, click anywhere to exit"
+      modalText.classList.add("mb-6")
+  
+      // append
+      modalContent.appendChild(modalHeader)
+      modalContent.appendChild(modalText)
+  
+      var modalBackground = document.getElementById("modal-background")
+      modalBackground.addEventListener("click", function() {
+      modal.classList.remove("is-active")
+      })  
+    }
+  })
+  // ka - add modal
 };
 
 //function to save to local storage
