@@ -1,9 +1,7 @@
-bio.css
-
-header {
-    display: flex;
-    margin: auto;
-    justify-content: center;
+bio.css header {
+  display: flex;
+  margin: auto;
+  justify-content: center;
 }
 
 .header-image-container {
@@ -13,54 +11,54 @@ header {
 }
 
 .cryptoBtn {
-    position: absolute;
-    left: 10px;
-    top:10px;
+  position: absolute;
+  left: 10px;
+  top: 10px;
 }
 .hero {
-    text-align: center;
-    color: white;
-    /* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/#b8e1fc+0,a9d2f3+10,90bae4+25,90bcea+37,90bff0+50,6ba8e5+51,a2daf5+83,bdf3fd+100;Blue+Gloss+%231 */
-    background: #b8e1fc; /* Old browsers */
-    background: -moz-linear-gradient(
-      left,
-      #b8e1fc 0%,
-      #a9d2f3 10%,
-      #90bae4 25%,
-      #90bcea 37%,
-      #90bff0 50%,
-      #6ba8e5 51%,
-      #a2daf5 83%,
-      #bdf3fd 100%
-    ); /* FF3.6-15 */
-    background: -webkit-linear-gradient(
-      left,
-      #b8e1fc 0%,
-      #a9d2f3 10%,
-      #90bae4 25%,
-      #90bcea 37%,
-      #90bff0 50%,
-      #6ba8e5 51%,
-      #a2daf5 83%,
-      #bdf3fd 100%
-    ); /* Chrome10-25,Safari5.1-6 */
-    background: linear-gradient(
-      to right,
-      #b8e1fc 0%,
-      #a9d2f3 10%,
-      #90bae4 25%,
-      #90bcea 37%,
-      #90bff0 50%,
-      #6ba8e5 51%,
-      #a2daf5 83%,
-      #bdf3fd 100%
-    ); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#b8e1fc', endColorstr='#bdf3fd',GradientType=1 ); /* IE6-9 */
-  }
+  text-align: center;
+  color: white;
+  /* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/#b8e1fc+0,a9d2f3+10,90bae4+25,90bcea+37,90bff0+50,6ba8e5+51,a2daf5+83,bdf3fd+100;Blue+Gloss+%231 */
+  background: #b8e1fc; /* Old browsers */
+  background: -moz-linear-gradient(
+    left,
+    #b8e1fc 0%,
+    #a9d2f3 10%,
+    #90bae4 25%,
+    #90bcea 37%,
+    #90bff0 50%,
+    #6ba8e5 51%,
+    #a2daf5 83%,
+    #bdf3fd 100%
+  ); /* FF3.6-15 */
+  background: -webkit-linear-gradient(
+    left,
+    #b8e1fc 0%,
+    #a9d2f3 10%,
+    #90bae4 25%,
+    #90bcea 37%,
+    #90bff0 50%,
+    #6ba8e5 51%,
+    #a2daf5 83%,
+    #bdf3fd 100%
+  ); /* Chrome10-25,Safari5.1-6 */
+  background: linear-gradient(
+    to right,
+    #b8e1fc 0%,
+    #a9d2f3 10%,
+    #90bae4 25%,
+    #90bcea 37%,
+    #90bff0 50%,
+    #6ba8e5 51%,
+    #a2daf5 83%,
+    #bdf3fd 100%
+  ); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#b8e1fc', endColorstr='#bdf3fd',GradientType=1 ); /* IE6-9 */
+}
 
-  .hero p {
-    color: white;
-  }
+.hero p {
+  color: white;
+}
 
 .headerText {
   text-align: center;
@@ -77,13 +75,12 @@ header {
 }
 
 .cryptoHeader {
-    width: 95%;
-
+  width: 95%;
 }
 
 .cryptoHeader h1 {
-    overflow:auto;
-    white-space: nowrap;
+  overflow: auto;
+  white-space: nowrap;
 }
 
 .mainContainer {
@@ -108,137 +105,178 @@ header {
 .stock-header-container h3 {
   font-weight: bold;
   text-decoration: none;
-    
 }
 
-.chart-divider{
-    height: 2px;
-    background-color:lightblue ;
-    width: 100%;
-    margin: 20px;
+.chart-divider {
+  height: 2px;
+  background-color: lightblue;
+  width: 100%;
+  margin: 20px;
 }
-.chart-header{
-    display: flex;
-    flex-direction: row;
-    justify-content:center;
-    margin-top: 10px;
+.chart-header {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  margin-top: 10px;
 }
-#charts-card{
-    display: flex;
-    padding:40px;
-    width:900px;
-    height:600px;
-    margin-top: 20px;
-    align-items: center;
-    margin-bottom: 20px;
+#charts-card {
+  display: flex;
+  padding: 40px;
+  width: 900px;
+  height: 600px;
+  margin-top: 20px;
+  align-items: center;
+  margin-bottom: 20px;
 }
 
-.charts-main-section{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+.charts-main-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
-.chart-btn-container{
-    display: flex;
-    justify-content: center;
+.chart-btn-container {
+  display: flex;
+  justify-content: center;
 }
 .cryptoTab {
-    font-weight: bold;
-    width:80%;
-    margin-left: auto;
-    margin-right: auto;
+  font-weight: bold;
+  width: 80%;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .noWrap {
-    display: inline-block;
+  display: inline-block;
 }
 
 .positiveChange {
-    color: green;
+  color: green;
 }
 
 .negativeChange {
-    color: red;
+  color: red;
 }
 
 .imageSize {
-    height: 15px;
-    width: 15px;
+  height: 15px;
+  width: 15px;
 }
 
 .elementFlex {
-    display: flex;
-    flex-wrap: wrap;
+  display: flex;
+  flex-wrap: wrap;
 }
 
 .divContainer {
-    flex-direction: column;
-    width:80%;
-    margin-left: auto;
-    margin-right: auto;
+  flex-direction: column;
+  width: 80%;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 table {
-    width: 100%;
+  width: 100%;
 }
 
 .pageStyle {
-    width: 90%;
-    margin-left: auto;
-    margin-right: auto;
+  width: 90%;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .borderLine {
-    border-bottom: 1px solid rgb(221, 221, 221);
+  border-bottom: 1px solid rgb(221, 221, 221);
 }
 
 .cursorHover {
-    cursor: pointer;
+  cursor: pointer;
 }
 
 .bio-tab {
-    background-color: hsl(204, 86%, 53%);
-    color: white;
+  background-color: hsl(204, 86%, 53%);
+  color: white;
 }
 
 .bio-company-name {
-    font-weight: bold;
-    padding-bottom: 10px;
+  font-weight: bold;
+  padding-bottom: 10px;
 }
 
 .address-section {
-    padding-bottom: 20px;
-    border-bottom: 2px solid hsl(204, 86%, 53%);
+  padding-bottom: 20px;
+  border-bottom: 2px solid hsl(204, 86%, 53%);
 }
 
 .bio-description-header {
-    font-weight: bold;
-    padding-bottom: 10px;
+  font-weight: bold;
+  padding-bottom: 10px;
 }
 
 .bio-sector {
-    padding-top: 110px;
+  padding-top: 110px;
 }
 
 .bio-sector-no-address2 {
-    padding-top: 82px;
+  padding-top: 82px;
 }
 
 .bio-industry-container {
-    text-align: right;
+  text-align: right;
 }
 
 .bio-description-container {
-    padding-bottom: 30px;
-    border-bottom: 2px solid hsl(204, 86%, 53%);
+  padding-bottom: 30px;
+  border-bottom: 2px solid hsl(204, 86%, 53%);
 }
 
-.bio-quarterly-header, .bio-employee-header {
-    font-weight: bold;
-    padding-bottom: 20px;
+.bio-quarterly-header,
+.bio-employee-header {
+  font-weight: bold;
+  padding-bottom: 20px;
 }
 
 .bio-quarterly-container {
-    padding-bottom: 30px;
-    border-bottom: 2px solid hsl(204, 86%, 53%);
+  padding-bottom: 30px;
+  border-bottom: 2px solid hsl(204, 86%, 53%);
+}
+
+.footer {
+  text-align: left;
+  color: white;
+  /* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/#b8e1fc+0,a9d2f3+10,90bae4+25,90bcea+37,90bff0+50,6ba8e5+51,a2daf5+83,bdf3fd+100;Blue+Gloss+%231 */
+  background: #b8e1fc; /* Old browsers */
+  background: -moz-linear-gradient(
+    left,
+    #b8e1fc 0%,
+    #a9d2f3 10%,
+    #90bae4 25%,
+    #90bcea 37%,
+    #90bff0 50%,
+    #6ba8e5 51%,
+    #a2daf5 83%,
+    #bdf3fd 100%
+  ); /* FF3.6-15 */
+  background: -webkit-linear-gradient(
+    left,
+    #b8e1fc 0%,
+    #a9d2f3 10%,
+    #90bae4 25%,
+    #90bcea 37%,
+    #90bff0 50%,
+    #6ba8e5 51%,
+    #a2daf5 83%,
+    #bdf3fd 100%
+  ); /* Chrome10-25,Safari5.1-6 */
+  background: linear-gradient(
+    to right,
+    #b8e1fc 0%,
+    #a9d2f3 10%,
+    #90bae4 25%,
+    #90bcea 37%,
+    #90bff0 50%,
+    #6ba8e5 51%,
+    #a2daf5 83%,
+    #bdf3fd 100%
+  ); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#b8e1fc', endColorstr='#bdf3fd',GradientType=1 ); /* IE6-9 */
 }
