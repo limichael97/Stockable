@@ -1,50 +1,67 @@
-var companyInput = document.getElementById("company")
-var baseURL ="https://stock-data-yahoo-finance-alternative.p.rapidapi.com/v8/finance/spark?symbols=";
+var companyInput = document.getElementById("company");
+var baseURL =
+  "https://stock-data-yahoo-finance-alternative.p.rapidapi.com/v8/finance/spark?symbols=";
 var monthlyBtnEl = document.getElementById("btn-monthly");
 var weeklyBtnEl = document.getElementById("btn-weekly");
 var dailyBtnEl = document.getElementById("btn-daily");
 var monthlyPrices = [];
 var months = [];
-let myWeeklyChart = document.getElementById("stock-chart-weekly").getContext("2d");
-let myDailyChart = document.getElementById("stock-chart-daily").getContext("2d");
-let myMonthlyChart = document.getElementById("stock-chart-monthly").getContext("2d");
-let myHourlyChart = document.getElementById("stock-chart-hourly").getContext("2d");
+let myWeeklyChart = document
+  .getElementById("stock-chart-weekly")
+  .getContext("2d");
+let myDailyChart = document
+  .getElementById("stock-chart-daily")
+  .getContext("2d");
+let myMonthlyChart = document
+  .getElementById("stock-chart-monthly")
+  .getContext("2d");
+let myHourlyChart = document
+  .getElementById("stock-chart-hourly")
+  .getContext("2d");
 let myMinsChart = document.getElementById("stock-chart-min").getContext("2d");
 //Tempotrarily hardcoded ticker
 var companyName = "TSLA";
 
-//company name form Local storage 
+//company name form Local storage
 
-var getTickerFromLocalStorage = function() {
+var getTickerFromLocalStorage = function () {
   //var companyName = localStorage.getItem("Company-Name")
-  console.log(companyName)
+  console.log(companyName);
   //var companyName  = TSLA;
-}
-
+};
 
 async function getMonthlyData() {
-  const settings = {
-    async: true,
-    crossDomain: true,
-    url: baseURL + companyName + "&range=1y&interval=1mo",
-    method: "GET",
-    headers: {
-      "x-rapidapi-host": "stock-data-yahoo-finance-alternative.p.rapidapi.com",
-      "x-rapidapi-key": "bcf226c698msh087777986892404p16f1dejsn892bbb810e0b",
-    },
-  };
-  $.ajax(settings).done(function (response) {
-    console.log(response);
-
-    for (i = 0; i < response.companyName.close.length; i++) {
-      months = i;
-      console.log(months);
+  fetch(
+    "https://yh-finance.p.rapidapi.com/market/get-spark?symbols=TSLA&interval=1m&range=1Y",
+    {
+      method: "GET",
+      headers: {
+        "x-rapidapi-host": "yh-finance.p.rapidapi.com",
+        "x-rapidapi-key": "6b3ff5ef15msh7a6db3a3fcd5adbp159940jsn4e31dec2a526",
+      },
     }
-    for (i = 0; i < response.companyName.close.length; i++) {
-      monthlyPrices = response.companyName.close[i];
+  )
+    .then((response) => {
+      return response.json();
+    })
+    .then((response) => {
+      console.log(response);
+      for (i = 0; i < response.TSLA.close.length; i++) {
+        //months = i;
+        months.push(i.toString());
+        // console.log(months);
+      }
+      for (i = 0; i < response.TSLA.close.length; i++) {
+        //monthlyPrices = response.companyName.close[i];
+        monthlyPrices.push(response.TSLA.close[i].toString());
+        //console.log(monthlyPrices);
+      }
       console.log(monthlyPrices);
-    }
-  });
+      console.log(months);
+    })
+    .catch((err) => {
+      console.error(err);
+    });
 }
 
 async function drawMonthlyChart() {
@@ -55,16 +72,28 @@ async function drawMonthlyChart() {
     type: "line",
     data: {
       //This will be replaced by date array
-      labels: ["January","February","March","April","May","June","July",
-      "August","September","October","November","December"],
+      labels: [
+        "January",
+        "February",
+        "March",
+        "April",
+        "May",
+        "June",
+        "July",
+        "August",
+        "September",
+        "October",
+        "November",
+        "December",
+      ],
       datasets: [
         {
           label: "Stock Price Monthly Trend ",
           data: 
-          [1149, 1139, 1047, 1102, 555, 678, 745, 1173, 1149, 1228, 1228, 1031,
-          1002, 1054, 987, 760, 985, 400, 468, 520, 540, 587, 610, 456, 687,
-          445, 672, 920, 521, 498, 620, 420, 852,
-        ],
+            [1149, 1139, 1047, 1102, 555, 678, 745, 1173, 1149, 1228, 1228, 1031,
+            1002, 1054, 987, 760, 985, 400, 468, 520, 540, 587, 610, 456, 687,
+            445, 672, 920, 521, 498, 620, 420, 852,
+          ],
           backgroundColor: ["rgba(75, 192, 192, 0.2)"],
           borderColor: ["rgba(75, 192, 192, 1)"],
           borderWidth: 2,
@@ -83,7 +112,7 @@ async function drawMonthlyChart() {
 
 //Creating a chart for Monthly Trend
 monthlyBtnEl.addEventListener("click", function () {
-  drawMonthlyChart();
+  getMonthlyData();
 });
 
 // //Getting weekly data
@@ -95,7 +124,7 @@ async function getWeeklyData() {
     method: "GET",
     headers: {
       "x-rapidapi-host": "stock-data-yahoo-finance-alternative.p.rapidapi.com",
-      "x-rapidapi-key": "bcf226c698msh087777986892404p16f1dejsn892bbb810e0b",
+      "x-rapidapi-key": "6b3ff5ef15msh7a6db3a3fcd5adbp159940jsn4e31dec2a526",
     },
   };
   $.ajax(settings).done(function (response) {
@@ -112,26 +141,53 @@ async function getWeeklyData() {
     }
   });
 }
-  //Creating chart weekly trends
-  weeklyBtnEl.addEventListener("click", function () {
-    drawWeeklyChart();
-  });
+//Creating chart weekly trends
+weeklyBtnEl.addEventListener("click", function () {
+  getMonthlyData();
+  // drawWeeklyChart();//
+});
 
 async function drawWeeklyChart() {
   //This function will be called once the ticker is passed an appropriate data is generated.
   //await getWeeklyData();
-  ///destroyGraph();
   myWeeklyChart = new Chart(myWeeklyChart, {
     type: "line",
     data: {
-      labels:
-      
-      [
-        "week 01", "Week 02","Week 03", "Week 04","Week 05","Week 06","Week 07","Week 08","Week 09",
-        "Week 10","Week 11","Week 12","Week 13","Week 14","Week 15","Week 16","Week 17","Week 18",
-        "Week 19","Week 20","Week 21","Week 22","Week 23","Week 24","Week 25","Week 26","Week 27",
-        "Week 28","Week 29", "Week 30","Week 31","Week 32","Week 33" ]
-      ,
+      labels: [
+        "week 01",
+        "Week 02",
+        "Week 03",
+        "Week 04",
+        "Week 05",
+        "Week 06",
+        "Week 07",
+        "Week 08",
+        "Week 09",
+        "Week 10",
+        "Week 11",
+        "Week 12",
+        "Week 13",
+        "Week 14",
+        "Week 15",
+        "Week 16",
+        "Week 17",
+        "Week 18",
+        "Week 19",
+        "Week 20",
+        "Week 21",
+        "Week 22",
+        "Week 23",
+        "Week 24",
+        "Week 25",
+        "Week 26",
+        "Week 27",
+        "Week 28",
+        "Week 29",
+        "Week 30",
+        "Week 31",
+        "Week 32",
+        "Week 33",
+      ],
       datasets: [
         {
           label: "Stock Price Weekly Trend",
@@ -179,7 +235,7 @@ async function getDailyData() {
     method: "GET",
     headers: {
       "x-rapidapi-host": "stock-data-yahoo-finance-alternative.p.rapidapi.com",
-      "x-rapidapi-key": "6b3ff5ef15msh7a6db3a3fcd5adbp159940jsn4e31dec2a526",
+      "x-rapidapi-key": "5fc965876amsh06320411b49674ep1a1b93jsnd274b891d2c5",
     },
   };
   $.ajax(settings).done(function (response) {
@@ -197,14 +253,14 @@ async function getDailyData() {
 }
 
 //  //Daily trend
- dailyBtnEl.addEventListener("click", function () {
+dailyBtnEl.addEventListener("click", function () {
   drawDailyChart();
 });
 
 // //Creating charts Daily trend
 async function drawDailyChart() {
   //This function will be called once the ticker is passed an appropriate data is generated.
-  await getDailyData();
+  // await getDailyData();
   //Destroying the canvas and making a new one
   myDailyChart = new Chart(myDailyChart, {
     type: "line",
@@ -259,13 +315,13 @@ async function drawDailyChart() {
     },
   });
 }
-  // //Creating charts Daily trend
+// //Creating charts Daily trend
 async function drawHourlyChart() {
   //This function will be called once the ticker is passed an appropriate data is generated.
- // await getHourlyData();
+  // await getHourlyData();
   //Destroying the canvas and making a new one
-  
-  myHourlyChart = new Chart( myHourlyChart, {
+
+  myHourlyChart = new Chart(myHourlyChart, {
     type: "bar",
     data: {
       labels: [
@@ -289,10 +345,8 @@ async function drawHourlyChart() {
             1003, 1017, 1047, 1102, 1173, 1149, 1228, 1228, 1031, 1002, 1054,
             987,
           ],
-          backgroundColor: 
-            "rgba(75, 192, 192, 0.2)",
-          borderColor: 
-            "rgba(75, 192, 192, 1)",
+          backgroundColor: "rgba(75, 192, 192, 0.2)",
+          borderColor: "rgba(75, 192, 192, 1)",
           borderWidth: 2,
         },
       ],
@@ -305,14 +359,13 @@ async function drawHourlyChart() {
       },
     },
   });
-
 }
 // //Creating charts 15 mins  trend
 async function drawMinsChart() {
   //This function will be called once the ticker is passed an appropriate data is generated.
- // await getData();
+  // await getData();
   //Destroying the canvas and making a new one
-  myMinsChart = new Chart( myMinsChart, {
+  myMinsChart = new Chart(myMinsChart, {
     type: "line",
     data: {
       labels: [
@@ -336,10 +389,8 @@ async function drawMinsChart() {
             1003, 1017, 1047, 1102, 1173, 1149, 1228, 1228, 1031, 1002, 1054,
             987,
           ],
-          backgroundColor: 
-          "rgba(255, 159, 64, 1)",
-          borderColor: 
-          "rgba(255, 159, 64, 1)",
+          backgroundColor: "rgba(255, 159, 64, 1)",
+          borderColor: "rgba(255, 159, 64, 1)",
           borderWidth: 2,
         },
       ],
