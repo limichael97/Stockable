@@ -1,200 +1,196 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link
-      href="https://fonts.googleapis.com/css?family=IBM+Plex+Sans:400,400i,700&display=swap"
-      rel="stylesheet"
-    />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css"
-    />
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css"
-    />
-    <link rel="stylesheet" href="./assets/css/style.css" />
-    <title>Stockable</title>
-  </head>
-  <body>
-    <main>
-      <!-- Header -->
-      <header class = "header-image-container">
-        <div class="">
-          <img src="./assets/images/stockable header image.png" alt="logo" width="65%"/>
-        </div>
-      </header>
 
-      <!--Hero-->
-      <section class="hero is-medium">
-        <div class="hero-body">
-          <p class="title">SEARCH.  RESEARCH.  INVEST</p>
-          <p class="subtitle"></p>
-        </div>
-      </section>
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link href="https://fonts.googleapis.com/css?family=IBM+Plex+Sans:400,400i,700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css" />
+  <link rel="stylesheet" href="./assets/css/style.css" />
+  <title>Stockable</title>
+</head>
 
-      <section class="mainContainer">
-        <!-- Search Bar and buttons to toggle-->
-        <section class="columns">
-          <div class="search-bar-container column is-half mt-3 mr-3" id="">
-            <form id="searchInput" class="">
-              <label class="labelSearch" for="company"><strong>Enter company ticker:</strong> </label>
-              <input
-                name="company"
-                id="company"
-                type="text"
-                class="inputSearch"
-                placeholder="e.g. TSLA"
-                maxlength = "5" 
-              />
-              <button type="submit" class="button search-button is-info ml-3">Search</button>
-            </form>
-          </div>
+<body>
+  <main>
+    <!-- Header -->
+    <header class="header-image-container">
+      <div class="">
+        <img src="./assets/images/stockable header image.png" alt="logo" width="65%" />
+      </div>
+    </header>
 
-          <div
-            class="toggle-container column is-half has-text-centered m-3"
-            id=""
-          >
-            <button class="button is-info" id="stockIdBtn"><a href="./index.html"></a>Stocks</a></button>
-
-            <button class="button is-info linkRemove" id="cryptoIdBtn">
-              <a href="./crypto.html"> Crypto </a>
-            </button>
-          </div>
-        </section>
-
-        <!-- Stock Data Container-->
-        <section>
-          <div class="stock-header-container" id="">
-            <h3 class="" id="companyName"></h3>
-
-            <span id="subtitle"> </span>
-
-            <table class="column table">
-             <tr>   
-              <th id="current-price"></th>
-              <td id="current-price-text"></td>
-
-            <section>
-              <td id="percent-change"></td>
-
-              <td id="at-close"></td>
-               <th id="post-market-price"></th>
-             <td id="post-market-price-text"></td> 
-
-              <td id="post-market-change"></td>
-
-              <td id="after-hours"></td>
-              </tr>
-            </table>
-          </div>
-        </section>
-
-        <!-- tabs-->
-        <section>
-          <div class="mt-4 column is-four-fifths" id="">
-            <a class="p-2 mr-5"> Summary </a>
-            <a class="p-2 mr-5" href="./bio.html"> Bio </a>
-            <a class="p-2 mr-5" href="./chart.html"> Chart </a>
-          </div>
-        </section>
-
-        <!--Tab Data-->
-        <section>
-          <div class="tab-data" id="">
-            <div id="summary-data">
-              <table id="columnOne" class="data-column table is-bordered is-striped ">
-                <tr>
-                  <th id="previous-close" class="data-list"></th>
-                  <td id="previous-close-text" class="data-list-item"></td>
-                </tr>  
-                <tr>
-                  <th id="open" class="data-list"> <td id="open-text" class="data-list-item"></td></th>
-                </tr>
-                <tr>
-                  <th id="bid" class="data-list"><td id="bid-text" class="data-list-item"></td></th>
-                </tr>
-                <tr>
-                  <th id="ask" class="data-list"></th>
-                  <td id="ask-text" class="data-list-item"></td>
-                </tr>
-                <tr>
-                  <th id="days-range" class="data-list"></th>
-                  <td id="days-range-text" class="data-list-item"></td>
-                </tr>
-                <tr>
-                  <th id="52-week-high" class="data-list"></th>
-                  <td id="52-week-high-text" class="data-list-item"></td>
-                </tr>
-                <tr>
-                  <th id="volume" class="data-list"></th>
-                  <td id="volume-text" class="data-list-item"></td>
-                </tr>
-                <tr>
-                  <th id="average-volume" class="data-list"></th>
-                  <td id="average-volume-text" class="data-list-item"></td>
-                </tr>
-              </table>
-              <table id="column2" class="data-column is-bordered table is-striped">
-                <tr><th id="market-cap" class="data-list"></th>
-                  <td id="market-cap-text" class="data-list-item"></td>
-                </tr>
-                <tr><th id="beta" class="data-list"></th>
-                  <td id="beta-text" class="data-list-item"></td>
-                </tr>
-                <tr><th id="pe-ratio" class="data-list"></th>
-                  <td id="pe-ratio-text" class="data-list-item"></td>
-                </tr>
-                <tr><th id="eps" class="data-list"></th>
-                  <td id="eps-text" class="data-list-item"></td>
-                </tr>
-                <tr><th id="earnings-date" class="data-list"></th>
-                  <td id="earnings-date-text" class="data-list-item"></td>
-                </tr>
-                <tr><th id="forward-dividend" class="data-list"></th>
-                  <td id="forward-dividend-text" class="data-list-item"></td>
-                </tr>
-                <tr><th id="ex-dividend" class="data-list"></th>
-                  <td id="ex-dividend-text" class="data-list-item"></td>
-                </tr>
-                <tr><th id="1y-target" class="data-list"></th>
-                  <td id="1y-target-text" class="data-list-item"></td>
-                </tr>
- 
-              </table>
-            </div>
-          </div>
-        </section>
-      </section>
-      <br />
-
-      <!-- Footer -->
-      <section>
-        <footer class="footer ml-4">
-          <span>
-            Stockable Inc. <br />
-            1 Shields Ave <br /> 
-            Davis, CA 95616 <br /> 
-<br />
-            Created by:  Kimberly Amaya, Lauren De Guzman, Michael Li, Nelson Roberts
-            </span
-          >
-        </footer>
-      </section>
-    </main>
-
-    <section>
-      <div id = "modal" class="modal">
-          <div id = "modal-background" class="modal-background"></div>
-          <div id = "modal-content" class="modal-content has-background-white py-5 px-5 has-text-centered has-text-link"></div>
-          <button id = "modal-close" class="modal-close is-large" aria-label="close"></button>
+    <!--Hero-->
+    <section class="hero is-medium">
+      <div class="hero-body">
+        <p class="title">SEARCH. RESEARCH. INVEST</p>
+        <p class="subtitle"></p>
       </div>
     </section>
 
-    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-    <script src="./assets/js/script.js"></script>
-  </body>
+    <section class="mainContainer">
+      <!-- Search Bar and buttons to toggle-->
+      <section class="columns">
+        <div class="search-bar-container column is-half mt-3 mr-3" id="">
+          <form id="searchInput" class="">
+            <label class="labelSearch" for="company"><strong>Enter company ticker:</strong> </label>
+            <input name="company" id="company" type="text" class="inputSearch" placeholder="e.g. TSLA" maxlength="5" />
+            <button type="submit" class="button is-info ml-3 search-button">Search</button>
+          </form>
+        </div>
+
+        <div class="toggle-container column is-half has-text-centered m-3" id="">
+          <button class="button is-info" id="stockIdBtn"><a href="./index.html"></a>Stocks</a></button>
+
+          <button class="button is-info linkRemove" id="cryptoIdBtn">
+            <a href="./crypto.html"> Crypto </a>
+          </button>
+        </div>
+      </section>
+
+      <!-- Stock Data Container-->
+      <section>
+        <div class="stock-header-container" id="">
+          <h3 class="" id="companyName"></h3>
+
+          <span id="subtitle"> </span>
+
+          <table class="column table">
+            <tr>
+              <th id="current-price"></th>
+              <td id="current-price-text"></td>
+
+              <section>
+                <td id="percent-change"></td>
+
+                <td id="at-close"></td>
+                <th id="post-market-price"></th>
+                <td id="post-market-price-text"></td>
+
+                <td id="post-market-change"></td>
+
+                <td id="after-hours"></td>
+            </tr>
+          </table>
+        </div>
+      </section>
+
+      <!-- tabs-->
+      <section>
+        <div class="mt-4 column is-four-fifths" id="">
+          <a class="p-2 mr-5"> Summary </a>
+          <a class="p-2 mr-5" href="./bio.html"> Bio </a>
+          <a class="p-2 mr-5" href="./chart.html"> Chart </a>
+        </div>
+      </section>
+
+      <!--Tab Data-->
+      <section>
+        <div class="tab-data" id="">
+          <div id="summary-data">
+            <table id="columnOne" class="data-column table is-bordered is-striped ">
+              <tr>
+                <th id="previous-close" class="data-list"></th>
+                <td id="previous-close-text" class="data-list-item"></td>
+              </tr>
+              <tr>
+                <th id="open" class="data-list">
+                <td id="open-text" class="data-list-item"></td>
+                </th>
+              </tr>
+              <tr>
+                <th id="bid" class="data-list">
+                <td id="bid-text" class="data-list-item"></td>
+                </th>
+              </tr>
+              <tr>
+                <th id="ask" class="data-list"></th>
+                <td id="ask-text" class="data-list-item"></td>
+              </tr>
+              <tr>
+                <th id="days-range" class="data-list"></th>
+                <td id="days-range-text" class="data-list-item"></td>
+              </tr>
+              <tr>
+                <th id="52-week-high" class="data-list"></th>
+                <td id="52-week-high-text" class="data-list-item"></td>
+              </tr>
+              <tr>
+                <th id="volume" class="data-list"></th>
+                <td id="volume-text" class="data-list-item"></td>
+              </tr>
+              <tr>
+                <th id="average-volume" class="data-list"></th>
+                <td id="average-volume-text" class="data-list-item"></td>
+              </tr>
+            </table>
+            <table id="column2" class="data-column is-bordered table is-striped">
+              <tr>
+                <th id="market-cap" class="data-list"></th>
+                <td id="market-cap-text" class="data-list-item"></td>
+              </tr>
+              <tr>
+                <th id="beta" class="data-list"></th>
+                <td id="beta-text" class="data-list-item"></td>
+              </tr>
+              <tr>
+                <th id="pe-ratio" class="data-list"></th>
+                <td id="pe-ratio-text" class="data-list-item"></td>
+              </tr>
+              <tr>
+                <th id="eps" class="data-list"></th>
+                <td id="eps-text" class="data-list-item"></td>
+              </tr>
+              <tr>
+                <th id="earnings-date" class="data-list"></th>
+                <td id="earnings-date-text" class="data-list-item"></td>
+              </tr>
+              <tr>
+                <th id="forward-dividend" class="data-list"></th>
+                <td id="forward-dividend-text" class="data-list-item"></td>
+              </tr>
+              <tr>
+                <th id="ex-dividend" class="data-list"></th>
+                <td id="ex-dividend-text" class="data-list-item"></td>
+              </tr>
+              <tr>
+                <th id="1y-target" class="data-list"></th>
+                <td id="1y-target-text" class="data-list-item"></td>
+              </tr>
+
+            </table>
+          </div>
+        </div>
+      </section>
+    </section>
+    <br />
+
+    <!-- Footer -->
+    <section>
+      <footer class="footer ml-4">
+        <span>
+          Stockable Inc. <br />
+          1 Shields Ave <br />
+          Davis, CA 95616 <br />
+          <br />
+          Created by: Kimberly Amaya, Lauren De Guzman, Michael Li, Nelson Roberts
+        </span>
+      </footer>
+    </section>
+  </main>
+
+  <section>
+    <div id="modal" class="modal">
+      <div id="modal-background" class="modal-background"></div>
+      <div id="modal-content" class="modal-content has-background-white py-5 px-5 has-text-centered has-text-link">
+      </div>
+      <button id="modal-close" class="modal-close is-large" aria-label="close"></button>
+    </div>
+  </section>
+
+  <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+  <script src="./assets/js/script.js"></script>
+</body>
+
 </html>
